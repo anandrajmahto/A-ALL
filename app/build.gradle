@@ -36,4 +36,6 @@ dependencies {
     implementation 'com.google.android.material:material:1.1.0'
     implementation 'com.moos:Material-BottomBarLayout:1.0.5'
 
+    implementation 'com.google.android.gms:play-services-ads:19.3.0'
+
 }
