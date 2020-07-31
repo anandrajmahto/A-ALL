@@ -201,19 +201,19 @@ public class Host extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 reset_btn.setVisibility(View.VISIBLE);
-                mDatabase.child("Room_id").child(nameofhost).child("Moves").child("Turn").setValue("online1");
+                mDatabase.child("TicTacToe").child(nameofhost).child("Moves").child("Turn").setValue("online1");
                 // DataAdapter user = new DataAdapter(nameofhost);
                 DataAdapter user1 = new DataAdapter(" ", " ", " ", " ", " ", " ", " ", " ", " ");
                 DataAdapter user2 = new DataAdapter("1", "");
                 turn_dis.setText("Your Turn");
-                //  mDatabase.child("Room_id").child(nameofhost).setValue(user);
-                mDatabase.child("Room_id").child(nameofhost).child("Moves").setValue(user1);
-                mDatabase.child("Room_id").child(nameofhost).child("Turn").setValue(user2);
+                //  mDatabase.child("TicTacToe").child(nameofhost).setValue(user);
+                mDatabase.child("TicTacToe").child(nameofhost).child("Moves").setValue(user1);
+                mDatabase.child("TicTacToe").child(nameofhost).child("Turn").setValue(user2);
 
                 Toast.makeText(Host.this, "Hosted for Roomid=" + nameofhost, Toast.LENGTH_SHORT).show();
                 hostbtn.setVisibility(View.INVISIBLE);
                 //  String userId = mDatabase.push().getKey();
-                mDatabase.child("Room_id").child(nameofhost).child("Moves").child("Turn").setValue("online1");
+                mDatabase.child("TicTacToe").child(nameofhost).child("Moves").child("Turn").setValue("online1");
 
             }
         });
@@ -221,7 +221,7 @@ public class Host extends AppCompatActivity {
         //   if (turn_dis.getText()!=null){
         //Getting Values(Turn)
 
-        mDatabase.child("Room_id").child(nameofhost).child("Turn").addValueEventListener(new ValueEventListener() {
+        mDatabase.child("TicTacToe").child(nameofhost).child("Turn").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.getValue() != null) {
@@ -244,7 +244,7 @@ public class Host extends AppCompatActivity {
             }
         });
 
-        mDatabase.child("Room_id").child(nameofhost).child("Moves").addValueEventListener(new ValueEventListener() {
+        mDatabase.child("TicTacToe").child(nameofhost).child("Moves").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.getValue() != null) {
@@ -273,7 +273,7 @@ public class Host extends AppCompatActivity {
                 Toast.makeText(Host.this, "error", Toast.LENGTH_SHORT).show();
             }
         });
-        mDatabase.child("Room_id").child(nameofhost).child("Moves").child("Turn").addValueEventListener(new ValueEventListener() {
+        mDatabase.child("TicTacToe").child(nameofhost).child("Moves").child("Turn").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.getValue() != null) {
@@ -304,9 +304,9 @@ public class Host extends AppCompatActivity {
     // }
 
     private void UpdateData(String g) {
-        mDatabase.child("Room_id").child(nameofhost).child("Moves").child(g).setValue("X");
+        mDatabase.child("TicTacToe").child(nameofhost).child("Moves").child(g).setValue("X");
         DataAdapter user2 = new DataAdapter("2", "");
-        mDatabase.child("Room_id").child(nameofhost).child("Turn").setValue(user2);
+        mDatabase.child("TicTacToe").child(nameofhost).child("Turn").setValue(user2);
     }
 
     public void check() {
@@ -387,15 +387,15 @@ public class Host extends AppCompatActivity {
         }
     }
     private void ResetData() {
-        mDatabase.child("Room_id").child(nameofhost).child("Moves").child("g1").setValue(" ");
-        mDatabase.child("Room_id").child(nameofhost).child("Moves").child("g2").setValue(" ");
-        mDatabase.child("Room_id").child(nameofhost).child("Moves").child("g3").setValue(" ");
-        mDatabase.child("Room_id").child(nameofhost).child("Moves").child("g4").setValue(" ");
-        mDatabase.child("Room_id").child(nameofhost).child("Moves").child("g5").setValue(" ");
-        mDatabase.child("Room_id").child(nameofhost).child("Moves").child("g6").setValue(" ");
-        mDatabase.child("Room_id").child(nameofhost).child("Moves").child("g7").setValue(" ");
-        mDatabase.child("Room_id").child(nameofhost).child("Moves").child("g8").setValue(" ");
-        mDatabase.child("Room_id").child(nameofhost).child("Moves").child("g9").setValue(" ");
+        mDatabase.child("TicTacToe").child(nameofhost).child("Moves").child("g1").setValue(" ");
+        mDatabase.child("TicTacToe").child(nameofhost).child("Moves").child("g2").setValue(" ");
+        mDatabase.child("TicTacToe").child(nameofhost).child("Moves").child("g3").setValue(" ");
+        mDatabase.child("TicTacToe").child(nameofhost).child("Moves").child("g4").setValue(" ");
+        mDatabase.child("TicTacToe").child(nameofhost).child("Moves").child("g5").setValue(" ");
+        mDatabase.child("TicTacToe").child(nameofhost).child("Moves").child("g6").setValue(" ");
+        mDatabase.child("TicTacToe").child(nameofhost).child("Moves").child("g7").setValue(" ");
+        mDatabase.child("TicTacToe").child(nameofhost).child("Moves").child("g8").setValue(" ");
+        mDatabase.child("TicTacToe").child(nameofhost).child("Moves").child("g9").setValue(" ");
         int min = 1;
         int max = 2;
 
@@ -403,11 +403,11 @@ public class Host extends AppCompatActivity {
         final int i = r.nextInt(max - min + 1) + min;
         if (i == 1) {
             DataAdapter user2 = new DataAdapter("1", "Connected");
-            mDatabase.child("Room_id").child(nameofhost).child("Turn").setValue(user2);
+            mDatabase.child("TicTacToe").child(nameofhost).child("Turn").setValue(user2);
             Turn = true;
         } else {
             DataAdapter user2 = new DataAdapter("2", "Connected");
-            mDatabase.child("Room_id").child(nameofhost).child("Turn").setValue(user2);
+            mDatabase.child("TicTacToe").child(nameofhost).child("Turn").setValue(user2);
             Turn = false;
         }
     }
@@ -451,15 +451,15 @@ public class Host extends AppCompatActivity {
         button7.setTextColor(Color.parseColor("#A6FF0000"));
         button8.setTextColor(Color.parseColor("#A6FF0000"));
         button9.setTextColor(Color.parseColor("#A6FF0000"));
-        mDatabase.child("Room_id").child(nameofhost).child("Moves").child("g1").setValue("x");
-        mDatabase.child("Room_id").child(nameofhost).child("Moves").child("g2").setValue("x");
-        mDatabase.child("Room_id").child(nameofhost).child("Moves").child("g3").setValue("x");
-        mDatabase.child("Room_id").child(nameofhost).child("Moves").child("g4").setValue("x");
-        mDatabase.child("Room_id").child(nameofhost).child("Moves").child("g5").setValue("x");
-        mDatabase.child("Room_id").child(nameofhost).child("Moves").child("g6").setValue("x");
-        mDatabase.child("Room_id").child(nameofhost).child("Moves").child("g7").setValue("x");
-        mDatabase.child("Room_id").child(nameofhost).child("Moves").child("g8").setValue("x");
-        mDatabase.child("Room_id").child(nameofhost).child("Moves").child("g9").setValue("x");
+        mDatabase.child("TicTacToe").child(nameofhost).child("Moves").child("g1").setValue("x");
+        mDatabase.child("TicTacToe").child(nameofhost).child("Moves").child("g2").setValue("x");
+        mDatabase.child("TicTacToe").child(nameofhost).child("Moves").child("g3").setValue("x");
+        mDatabase.child("TicTacToe").child(nameofhost).child("Moves").child("g4").setValue("x");
+        mDatabase.child("TicTacToe").child(nameofhost).child("Moves").child("g5").setValue("x");
+        mDatabase.child("TicTacToe").child(nameofhost).child("Moves").child("g6").setValue("x");
+        mDatabase.child("TicTacToe").child(nameofhost).child("Moves").child("g7").setValue("x");
+        mDatabase.child("TicTacToe").child(nameofhost).child("Moves").child("g8").setValue("x");
+        mDatabase.child("TicTacToe").child(nameofhost).child("Moves").child("g9").setValue("x");
     }
     void cleanO() {
         // Toast.makeText(getApplicationContext(), "Your Opponent Won", Toast.LENGTH_LONG).show();
@@ -481,22 +481,22 @@ public class Host extends AppCompatActivity {
         button7.setTextColor(Color.parseColor("#A6FF0000"));
         button8.setTextColor(Color.parseColor("#A6FF0000"));
         button9.setTextColor(Color.parseColor("#A6FF0000"));
-        mDatabase.child("Room_id").child(nameofhost).child("Moves").child("g1").setValue("o");
-        mDatabase.child("Room_id").child(nameofhost).child("Moves").child("g2").setValue("o");
-        mDatabase.child("Room_id").child(nameofhost).child("Moves").child("g3").setValue("o");
-        mDatabase.child("Room_id").child(nameofhost).child("Moves").child("g4").setValue("o");
-        mDatabase.child("Room_id").child(nameofhost).child("Moves").child("g5").setValue("o");
-        mDatabase.child("Room_id").child(nameofhost).child("Moves").child("g6").setValue("o");
-        mDatabase.child("Room_id").child(nameofhost).child("Moves").child("g7").setValue("o");
-        mDatabase.child("Room_id").child(nameofhost).child("Moves").child("g8").setValue("o");
-        mDatabase.child("Room_id").child(nameofhost).child("Moves").child("g9").setValue("o");
+        mDatabase.child("TicTacToe").child(nameofhost).child("Moves").child("g1").setValue("o");
+        mDatabase.child("TicTacToe").child(nameofhost).child("Moves").child("g2").setValue("o");
+        mDatabase.child("TicTacToe").child(nameofhost).child("Moves").child("g3").setValue("o");
+        mDatabase.child("TicTacToe").child(nameofhost).child("Moves").child("g4").setValue("o");
+        mDatabase.child("TicTacToe").child(nameofhost).child("Moves").child("g5").setValue("o");
+        mDatabase.child("TicTacToe").child(nameofhost).child("Moves").child("g6").setValue("o");
+        mDatabase.child("TicTacToe").child(nameofhost).child("Moves").child("g7").setValue("o");
+        mDatabase.child("TicTacToe").child(nameofhost).child("Moves").child("g8").setValue("o");
+        mDatabase.child("TicTacToe").child(nameofhost).child("Moves").child("g9").setValue("o");
     }
     public void onDestroy() {
         super.onDestroy();
         //Remove a value from realtime database
         DatabaseReference mDatabase;
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        mDatabase.child("Room_id").child(nameofhost).removeValue();
+        mDatabase.child("TicTacToe").child(nameofhost).removeValue();
     }
 
 }

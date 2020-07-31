@@ -188,8 +188,8 @@ public class Join extends AppCompatActivity {
                 input_room_code = input_room_codee.getText().toString();
                 if (!(input_room_codee.getText().toString().isEmpty())) {
                     hideKeyboard((Button) view);
-                    mDatabase.child("Room_id").child(input_room_code).child("Moves").child("Turn").setValue("online");
-                    mDatabase.child("Room_id").child(input_room_code).addValueEventListener(new ValueEventListener() {
+                    mDatabase.child("TicTacToe").child(input_room_code).child("Moves").child("Turn").setValue("online");
+                    mDatabase.child("TicTacToe").child(input_room_code).addValueEventListener(new ValueEventListener() {
                         @SuppressLint("SetTextI18n")
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -219,7 +219,7 @@ public class Join extends AppCompatActivity {
                         }
                     });
 
-                    mDatabase.child("Room_id").child(input_room_code).child("Turn").addValueEventListener(new ValueEventListener() {
+                    mDatabase.child("TicTacToe").child(input_room_code).child("Turn").addValueEventListener(new ValueEventListener() {
                         @SuppressLint("SetTextI18n")
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -244,7 +244,7 @@ public class Join extends AppCompatActivity {
                         }
                     });
 
-                    mDatabase.child("Room_id").child(input_room_code).child("Moves").addValueEventListener(new ValueEventListener() {
+                    mDatabase.child("TicTacToe").child(input_room_code).child("Moves").addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             if (dataSnapshot.getValue() != null) {
@@ -283,9 +283,9 @@ public class Join extends AppCompatActivity {
 
     private void UpdateData(String g) {
 
-        mDatabase.child("Room_id").child(input_room_code).child("Moves").child(g).setValue("O");
+        mDatabase.child("TicTacToe").child(input_room_code).child("Moves").child(g).setValue("O");
         DataAdapter user2 = new DataAdapter("1", "Connected");
-        mDatabase.child("Room_id").child(input_room_code).child("Turn").setValue(user2);
+        mDatabase.child("TicTacToe").child(input_room_code).child("Turn").setValue(user2);
 
     }
 
@@ -386,15 +386,15 @@ public class Join extends AppCompatActivity {
     }
 
     private void ResetData() {
-        mDatabase.child("Room_id").child(input_room_code).child("Moves").child("g1").setValue(" ");
-        mDatabase.child("Room_id").child(input_room_code).child("Moves").child("g2").setValue(" ");
-        mDatabase.child("Room_id").child(input_room_code).child("Moves").child("g3").setValue(" ");
-        mDatabase.child("Room_id").child(input_room_code).child("Moves").child("g4").setValue(" ");
-        mDatabase.child("Room_id").child(input_room_code).child("Moves").child("g5").setValue(" ");
-        mDatabase.child("Room_id").child(input_room_code).child("Moves").child("g6").setValue(" ");
-        mDatabase.child("Room_id").child(input_room_code).child("Moves").child("g7").setValue(" ");
-        mDatabase.child("Room_id").child(input_room_code).child("Moves").child("g8").setValue(" ");
-        mDatabase.child("Room_id").child(input_room_code).child("Moves").child("g9").setValue(" ");
+        mDatabase.child("TicTacToe").child(input_room_code).child("Moves").child("g1").setValue(" ");
+        mDatabase.child("TicTacToe").child(input_room_code).child("Moves").child("g2").setValue(" ");
+        mDatabase.child("TicTacToe").child(input_room_code).child("Moves").child("g3").setValue(" ");
+        mDatabase.child("TicTacToe").child(input_room_code).child("Moves").child("g4").setValue(" ");
+        mDatabase.child("TicTacToe").child(input_room_code).child("Moves").child("g5").setValue(" ");
+        mDatabase.child("TicTacToe").child(input_room_code).child("Moves").child("g6").setValue(" ");
+        mDatabase.child("TicTacToe").child(input_room_code).child("Moves").child("g7").setValue(" ");
+        mDatabase.child("TicTacToe").child(input_room_code).child("Moves").child("g8").setValue(" ");
+        mDatabase.child("TicTacToe").child(input_room_code).child("Moves").child("g9").setValue(" ");
 
         int min = 1;
         int max = 2;
@@ -403,11 +403,11 @@ public class Join extends AppCompatActivity {
         final int i = r.nextInt(max - min + 1) + min;
         if (i == 1) {
             DataAdapter user2 = new DataAdapter("1", "Connected");
-            mDatabase.child("Room_id").child(input_room_code).child("Turn").setValue(user2);
+            mDatabase.child("TicTacToe").child(input_room_code).child("Turn").setValue(user2);
             Turn = false;
         } else {
             DataAdapter user2 = new DataAdapter("2", "Connected");
-            mDatabase.child("Room_id").child(input_room_code).child("Turn").setValue(user2);
+            mDatabase.child("TicTacToe").child(input_room_code).child("Turn").setValue(user2);
             Turn = true;
         }
 
@@ -495,9 +495,9 @@ public class Join extends AppCompatActivity {
         //Remove a value from realtime database
         DatabaseReference mDatabase;
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        mDatabase.child("Room_id").child(input_room_code).child("Moves").child("Turn").setValue(" ");
+        mDatabase.child("TicTacToe").child(input_room_code).child("Moves").child("Turn").setValue(" ");
 
-        mDatabase.child("Room_id").child(input_room_code).child("Moves").removeValue();
-        mDatabase.child("Room_id").child(input_room_code).removeValue();
+        mDatabase.child("TicTacToe").child(input_room_code).child("Moves").removeValue();
+        mDatabase.child("TicTacToe").child(input_room_code).removeValue();
     }
 }
