@@ -188,12 +188,13 @@ public class Join extends AppCompatActivity {
                 input_room_code = input_room_codee.getText().toString();
                 if (!(input_room_codee.getText().toString().isEmpty())) {
                     hideKeyboard((Button) view);
-                    mDatabase.child("TicTacToe").child(input_room_code).child("Moves").child("Turn").setValue("online");
                     mDatabase.child("TicTacToe").child(input_room_code).addValueEventListener(new ValueEventListener() {
                         @SuppressLint("SetTextI18n")
                         @Override
                         public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                             if (dataSnapshot.getValue() != null) {
+                                mDatabase.child("TicTacToe").child(input_room_code).child("Moves").child("Turn").setValue("online");
+
                                 connect.setVisibility(View.INVISIBLE);
                                 input_room_codee.setVisibility(View.INVISIBLE);
                                 connection_check.setVisibility(View.VISIBLE);
@@ -495,9 +496,7 @@ public class Join extends AppCompatActivity {
         //Remove a value from realtime database
         DatabaseReference mDatabase;
         mDatabase = FirebaseDatabase.getInstance().getReference();
-        mDatabase.child("TicTacToe").child(input_room_code).child("Moves").child("Turn").setValue(" ");
 
-        mDatabase.child("TicTacToe").child(input_room_code).child("Moves").removeValue();
         mDatabase.child("TicTacToe").child(input_room_code).removeValue();
     }
 }

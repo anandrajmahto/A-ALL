@@ -27,7 +27,7 @@ public class Host extends AppCompatActivity {
     TextView room_code, turn_dis;
     FirebaseAuth fAuth;
     FirebaseFirestore fStore;
-    String UserId;
+
     String nameofhost;
     Button hostbtn, reset_btn;
     Button button1, button2, button3, button4, button5, button6, button7, button8, button9;
@@ -202,6 +202,7 @@ public class Host extends AppCompatActivity {
             public void onClick(View view) {
                 reset_btn.setVisibility(View.VISIBLE);
                 mDatabase.child("TicTacToe").child(nameofhost).child("Moves").child("Turn").setValue("online1");
+
                 // DataAdapter user = new DataAdapter(nameofhost);
                 DataAdapter user1 = new DataAdapter(" ", " ", " ", " ", " ", " ", " ", " ", " ");
                 DataAdapter user2 = new DataAdapter("1", "");
