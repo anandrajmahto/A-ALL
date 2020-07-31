@@ -25,7 +25,7 @@ public class game extends Fragment {
     private TextView textView;
 
     public game() {
-        // Required empty public constructor
+        // Required empty public co nstructor
     }
 
 
@@ -38,17 +38,21 @@ public class game extends Fragment {
         return view;
     }
 
-    private void initView(View view){
+    private void initView(View view) {
         MobileAds.initialize(getContext(), new OnInitializationCompleteListener() {
             @Override
-            public void onInitializationComplete(InitializationStatus initializationStatus) {}
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
         });
 
 
-
         final InterstitialAd mInterstitialAd = new InterstitialAd(getContext());
-        mInterstitialAd.setAdUnitId("ca-app-pub-4290412064319640/1240421790");
+        mInterstitialAd.setAdUnitId("ca-app-pub-3273060511389671/8768994810");
+
+        //  final AdRequest adRequestInterstitial = new AdRequest.Builder().addTestDevice("A36331EE1303A81960B3E2A6BE885C33").build();
+        // mInterstitialAd.loadAd(adRequestInterstitial);
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
 
         mInterstitialAd.setAdListener(new AdListener() {
             @Override
@@ -58,9 +62,10 @@ public class game extends Fragment {
 
             @Override
             public void onAdFailedToLoad(int errorCode) {
-                Toast.makeText(getActivity(),
-                        "onAdFailedToLoad() with error code: " + errorCode,
-                        Toast.LENGTH_SHORT).show();
+                Log.d("as", "asd");
+                //    mInterstitialAd.loadAd(adRequestInterstitial);
+                // mInterstitialAd.loadAd(new AdRequest.Builder().build());
+                Toast.makeText(getActivity(), "onAdFailedToLoad() with error code: " + errorCode, Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -71,7 +76,7 @@ public class game extends Fragment {
 
         textView = view.findViewById(R.id.fm_content_text);
         textView.setText("content");
-        Button mMyButton=view.findViewById(R.id.mMyButton);
+        Button mMyButton = view.findViewById(R.id.mMyButton);
         mMyButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

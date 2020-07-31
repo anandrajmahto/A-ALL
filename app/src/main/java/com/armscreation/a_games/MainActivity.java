@@ -1,15 +1,17 @@
 package com.armscreation.a_games;
 
+import android.graphics.Color;
+import android.os.Bundle;
+import android.util.Log;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import android.graphics.Color;
-import android.os.Bundle;
-import android.util.Log;
-
-import com.armscreation.a_games.fragment.game;
+import com.armscreation.a_games.fragment.discover;
+import com.armscreation.a_games.fragment.home;
+import com.armscreation.a_games.fragment.profile;
 import com.moos.navigation.BottomBarLayout;
 import com.moos.navigation.BottomTabView;
 
@@ -24,34 +26,40 @@ public class MainActivity extends AppCompatActivity {
         BottomBarLayout bottomBarLayout = findViewById(R.id.navigation_bar_vertical);
 
         BottomTabView tab_home = new BottomTabView(getApplicationContext());
-        tab_home.setTabIcon(R.drawable.work_edit_sticker_unselected_state);
+        tab_home.setTabIcon(R.drawable.home);
 
         tab_home.setTabTitle("Home");
         tab_home.setSelectedColor(Color.parseColor("#f3566a"));
+        tab_home.setTabIconOnly(true);
+        tab_home.setTabIconSize(30);
         //tab_home.setUnselectedColor(Color.parseColor("#f65656"));
 
-        BottomTabView tab_look = new BottomTabView(getApplicationContext());
-        tab_look.setTabIcon(R.drawable.work_edit_words_unselected_state);
+        BottomTabView tab_discover = new BottomTabView(getApplicationContext());
+        tab_discover.setTabIcon(R.drawable.search);
 
-        tab_look.setTabTitle("Discover");
-        tab_look.setSelectedColor(Color.parseColor("#f3566a"));
-        //tab_look.setUnselectedColor(Color.parseColor("#f65656"));
-
-
-        BottomTabView tab_mine = new BottomTabView(getApplicationContext());
-        tab_mine.setTabIcon(R.drawable.work_edit_music_unselected_state);
-        tab_mine.setSelectedColor(Color.parseColor("#f3566a"));
-        tab_mine.setTabTitle("Mine");
-        //tab_mine.setUnreadCount(100);
-        //tab_mine.setSelectedTabIcon(R.drawable.user_selected);
+        tab_discover.setTabTitle("Discover");
+        tab_discover.setSelectedColor(Color.parseColor("#f3566a"));
+        tab_discover.setTabIconOnly(true);
+        tab_discover.setTabIconSize(30);
+        //tab_discover.setUnselectedColor(Color.parseColor("#f65656"));
 
 
-        replaceFragment(new game());
+        BottomTabView tab_profile = new BottomTabView(getApplicationContext());
+        tab_profile.setTabIcon(R.drawable.profile);
+        tab_profile.setSelectedColor(Color.parseColor("#f3566a"));
+        tab_profile.setTabTitle("Profile");
+        tab_profile.setTabIconOnly(true);
+        tab_profile.setTabIconSize(30);
+        //tab_profile.setUnreadCount(100);
+        //tab_profile.setSelectedTabIcon(R.drawable.user_selected);
+
+
+        replaceFragment(new home());
 
         bottomBarLayout
                 .addTab(tab_home)
-                .addTab(tab_look)
-                .addTab(tab_mine)
+                .addTab(tab_discover)
+                .addTab(tab_profile)
 
                 .create(new BottomBarLayout.OnTabSelectedListener() {
                     @Override
@@ -59,15 +67,15 @@ public class MainActivity extends AppCompatActivity {
                         Log.e(TAG, "onTabSelected: =="+tab.getTabPosition() );
                         switch (tab.getTabPosition()){
                             case 0:
-                                replaceFragment(new game());
+                                replaceFragment(new home());
                                 break;
 
                             case 1:
-                                replaceFragment(new game());
+                                replaceFragment(new discover());
                                 break;
 
                             case 2:
-                                replaceFragment(new game());
+                                replaceFragment(new profile());
                                 break;
                         }
                     }

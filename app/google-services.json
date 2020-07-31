@@ -1,42 +1,34 @@
 {
   "project_info": {
-    "project_number": "797850598046",
-    "firebase_url": "https://a-games-2e380.firebaseio.com",
-    "project_id": "a-games-2e380",
-    "storage_bucket": "a-games-2e380.appspot.com"
+    "project_number": "463970984573",
+    "firebase_url": "https://a-games-37754.firebaseio.com",
+    "project_id": "a-games-37754",
+    "storage_bucket": "a-games-37754.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:797850598046:android:034cd144a132d873a5d98f",
+        "mobilesdk_app_id": "1:463970984573:android:958fdcde3b4682ea9a4714",
         "android_client_info": {
           "package_name": "com.armscreation.a_games"
         }
       },
       "oauth_client": [
         {
-          "client_id": "797850598046-8krqdqbrqec7sc2acd9n1scva5jhrkra.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.armscreation.a_games",
-            "certificate_hash": "43cd30ffc90d7f91439eaf5bbb01ee1db7efab8f"
-          }
-        },
-        {
-          "client_id": "797850598046-738ebd68063viggbde7f7h0nppd04c7j.apps.googleusercontent.com",
+          "client_id": "463970984573-1a7adho5e53r95ilvsqvfl51uq3epr6p.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyAazQvte_7NjX6UG8rPKAllIDR9VI6QC6Y"
+          "current_key": "AIzaSyCiZ1uArwybMUn4iOnNZvhCxl1QyoyCnmc"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "797850598046-738ebd68063viggbde7f7h0nppd04c7j.apps.googleusercontent.com",
+              "client_id": "463970984573-1a7adho5e53r95ilvsqvfl51uq3epr6p.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
