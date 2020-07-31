@@ -21,6 +21,13 @@
         <activity android:name="com.armscreation.a_games.bingo.MainActivity"/>
         <activity android:name="com.armscreation.a_games.bingo.Join"/>
 
+
+        <activity android:name="com.armscreation.a_games.chain.Splash"/>
+        <activity android:name="com.armscreation.a_games.chain.Host"/>
+        <activity android:name="com.armscreation.a_games.chain.MainActivity"/>
+        <activity android:name="com.armscreation.a_games.chain.Join"/>
+
+
         <activity android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
