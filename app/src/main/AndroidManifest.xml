@@ -15,6 +15,12 @@
         <activity android:name="com.armscreation.a_games.tictactoe.Host"/>
         <activity android:name="com.armscreation.a_games.tictactoe.MainActivity"/>
         <activity android:name="com.armscreation.a_games.tictactoe.Join"/>
+
+        <activity android:name="com.armscreation.a_games.bingo.Splash"/>
+        <activity android:name="com.armscreation.a_games.bingo.Host"/>
+        <activity android:name="com.armscreation.a_games.bingo.MainActivity"/>
+        <activity android:name="com.armscreation.a_games.bingo.Join"/>
+
         <activity android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>

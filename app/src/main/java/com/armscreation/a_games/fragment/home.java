@@ -48,7 +48,8 @@ CardView tictactoe,bingo,chain_reaction;
         bingo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getContext(),"Bingo",Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(getContext(),com.armscreation.a_games.bingo.Splash.class);
+                startActivity(intent);
             }
         });
 

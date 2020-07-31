@@ -71,7 +71,7 @@
                 <ImageView
                     android:layout_width="100dp"
                     android:layout_height="100dp"
-                    android:background="@drawable/bingo"
+                    android:background="@drawable/bingologo"
                     tools:ignore="ContentDescription" />
 
                 <View
