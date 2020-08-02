@@ -3,7 +3,9 @@ package com.armscreation.a_games.chain;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.LinearInterpolator;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -17,8 +19,8 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
     FirebaseAuth fAuth;
-    Button button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12, button13, button14, button15, button16, button17, button18, button19, button20, button21, button22, button23, button24, button25, button26, button27, button28, button29, button30, button31, button32, button33, button34, button35, button36, button37, button38, button39, button40, button41, button42, button43, button44, button45, button46, button47, button48, button49, button50;
-    Button[] array = new Button[51];
+    ImageButton button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12, button13, button14, button15, button16, button17, button18, button19, button20, button21, button22, button23, button24, button25, button26, button27, button28, button29, button30, button31, button32, button33, button34, button35, button36, button37, button38, button39, button40, button41, button42, button43, button44, button45, button46, button47, button48, button49, button50;
+    ImageButton[] array = new ImageButton[51];
     private FirebaseAuth mAuth;
     private int turn;
 
@@ -414,7 +416,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    void btn(int j) {
+    void btn(final int j) {
 
         //turn 1=red
         //turn 2=green
@@ -422,25 +424,22 @@ public class MainActivity extends AppCompatActivity {
 
         if (turn == 1 && array[j].getTag().equals(" ")) {
             array[j].setBackgroundResource(R.drawable.red);
+
             array[j].setTag("red");
             turn = 2;
         } else if (turn == 2 && array[j].getTag().equals(" ")) {
             array[j].setBackgroundResource(R.drawable.green);
             array[j].setTag("green");
             turn = 1;
-        }
-
-        else if (turn == 1 && array[j].getTag().equals("red")) {
+        } else if (turn == 1 && array[j].getTag().equals("red")) {
             array[j].setBackgroundResource(R.drawable.red2);
-            array[j].setTag("red2");
+             array[j].setTag("red2");
             turn = 2;
         } else if (turn == 2 && array[j].getTag().equals("green")) {
             array[j].setBackgroundResource(R.drawable.green2);
             array[j].setTag("green2");
             turn = 1;
-        }
-
-        else if (turn == 1 && array[j].getTag().equals("red2")) {
+        } else if (turn == 1 && array[j].getTag().equals("red2")) {
             array[j].setBackgroundResource(R.drawable.red3);
             array[j].setTag("red3");
             turn = 2;
@@ -448,10 +447,7 @@ public class MainActivity extends AppCompatActivity {
             array[j].setBackgroundResource(R.drawable.green3);
             array[j].setTag("green3");
             turn = 1;
-        }
-
-
-        else if (turn == 1 && array[j].getTag().equals("red3")) {
+        } else if (turn == 1 && array[j].getTag().equals("red3")) {
             array[j].setBackgroundResource(R.drawable.red4);
             array[j].setTag("red4");
             turn = 2;
@@ -461,16 +457,416 @@ public class MainActivity extends AppCompatActivity {
             turn = 1;
         }
 
-       turnchk();
-        // Toast.makeText(this, "Button " + (j + 1) + " Clicked", Toast.LENGTH_SHORT).show();
+        turnchk();
+
+        check();
+    }
+
+    private void check() {
+
+        check2(0, 1, 5);
+        check2(4, 3, 9);
+        check2(45, 40, 46);
+        check2(49, 48, 44);
+
+        check3(1, 0, 2, 6);
+        check3(2, 1, 3, 7);
+        check3(3, 2, 4, 8);
+
+        check3(46, 47, 45, 41);
+        check3(47, 48, 46, 42);
+        check3(48, 49, 47, 43);
+
+        check3(5, 0, 6, 10);
+        check3(10, 5, 11, 15);
+        check3(15, 10, 16, 20);
+        check3(20, 15, 21, 25);
+        check3(25, 20, 26, 30);
+        check3(30, 25, 31, 35);
+        check3(35, 30, 36, 40);
+        check3(40, 35, 41, 45);
+
+        check3(9, 4, 8, 14);
+        check3(14, 9, 13, 19);
+        check3(19, 14, 18, 24);
+        check3(24, 19, 23, 29);
+        check3(29, 24, 28, 34);
+        check3(34, 29, 33, 39);
+        check3(39, 34, 38, 44);
+        check3(44, 39, 43, 49);
+
+        check4(6, 1, 7, 11, 5);
+        check4(7,2,8,12,6);
+        check4(8,3,9,13,7);
+        check4(11,6,12,16,10);
+        check4(12,7,13,17,11);
+        check4(13,8,14,18,12);
+        check4(16,11,17,21,15);
+        check4(17,12,18,22,16);
+        check4(18,13,19,23,17);
+        check4(21,16,22,26,20);
+        check4(22,17,23,27,21);
+        check4(23,18,24,28,22);
+        check4(26,21,27,31,25);
+        check4(27,22,28,32,26);
+        check4(28,23,29,33,27);
+        check4(31,26,32,36,30);
+        check4(32,27,33,37,31);
+        check4(33,28,34,38,32);
+        check4(36,31,37,41,35);
+        check4(37,32,38,42,36);
+        check4(38,33,39,43,37);
+        check4(41,36,42,46,40);
+        check4(42,37,43,47,41);
+        check4(43,38,44,48,42);
+
+    }
+
+    private void check4(int i, int i1, int i2, int i3, int i4) {
+
+
+        //red check button i
+        if (array[i].getTag().equals("red4")) {
+            //button i1 check
+            if (array[i1].getTag().equals("red") || array[i1].getTag().equals("green")) {
+                array[i1].setBackgroundResource(R.drawable.red2);
+                array[i1].setTag("red2");
+
+            } else if (array[i1].getTag().equals("red2") || array[i1].getTag().equals("green2")) {
+                array[i1].setBackgroundResource(R.drawable.red3);
+                array[i1].setTag("red3");
+            } else if (array[i1].getTag().equals("red3") || array[i1].getTag().equals("green3")) {
+                array[i1].setBackgroundResource(R.drawable.red4);
+                array[i1].setTag("red4");
+            } else if (array[i1].getTag().equals("red4") || array[i1].getTag().equals("green4")) {
+                array[i1].setBackgroundResource(R.drawable.toe);
+                array[i1].setTag(" ");
+            } else {
+                array[i1].setBackgroundResource(R.drawable.red);
+                array[i1].setTag("red");
+
+            }
+            //button i2 check
+            if (array[i2].getTag().equals("red") || array[i2].getTag().equals("green")) {
+                array[i2].setBackgroundResource(R.drawable.red2);
+                array[i2].setTag("red2");
+            } else if (array[i2].getTag().equals("red2") || array[i2].getTag().equals("green2")) {
+                array[i2].setBackgroundResource(R.drawable.red3);
+                array[i2].setTag("red3");
+            } else if (array[i2].getTag().equals("red3") || array[i2].getTag().equals("green3")) {
+                array[i2].setBackgroundResource(R.drawable.red4);
+                array[i2].setTag("red4");
+            } else if (array[i2].getTag().equals("red4") || array[i2].getTag().equals("green4")) {
+                array[i2].setBackgroundResource(R.drawable.toe);
+                array[i2].setTag(" ");
+            } else {
+                array[i2].setBackgroundResource(R.drawable.red);
+                array[i2].setTag("red");
+
+            }
+            //button i3 check
+            if (array[i3].getTag().equals("red") || array[i3].getTag().equals("green")) {
+                array[i3].setBackgroundResource(R.drawable.red2);
+                array[i3].setTag("red2");
+            } else if (array[i3].getTag().equals("red2") || array[i3].getTag().equals("green2")) {
+                array[i3].setBackgroundResource(R.drawable.red3);
+                array[i3].setTag("red3");
+            } else if (array[i3].getTag().equals("red3") || array[i3].getTag().equals("red3")) {
+                array[i3].setBackgroundResource(R.drawable.red4);
+                array[i3].setTag("red4");
+            } else if (array[i3].getTag().equals("red4") || array[i3].getTag().equals("green4")) {
+                array[i3].setBackgroundResource(R.drawable.toe);
+                array[i3].setTag(" ");
+            } else {
+                array[i3].setBackgroundResource(R.drawable.red);
+                array[i3].setTag("red");
+
+            }
+            //button i4 check
+            if (array[i4].getTag().equals("red") || array[i4].getTag().equals("green")) {
+                array[i4].setBackgroundResource(R.drawable.red2);
+                array[i4].setTag("red2");
+            } else if (array[i4].getTag().equals("red2") || array[i4].getTag().equals("green2")) {
+                array[i4].setBackgroundResource(R.drawable.red3);
+                array[i4].setTag("red3");
+            } else if (array[i4].getTag().equals("red3") || array[i4].getTag().equals("red3")) {
+                array[i4].setBackgroundResource(R.drawable.red4);
+                array[i4].setTag("red4");
+            } else if (array[i4].getTag().equals("red4") || array[i4].getTag().equals("green4")) {
+                array[i4].setBackgroundResource(R.drawable.toe);
+                array[i4].setTag(" ");
+            } else {
+                array[i4].setBackgroundResource(R.drawable.red);
+                array[i4].setTag("red");
+
+            }
+
+            array[i].setBackgroundResource(R.drawable.toe);
+            array[i].setTag(" ");
+
+            check();
+        }
+        //green check button i
+        else if (array[i].getTag().equals("green4")) {
+            //button i1 check
+            if (array[i1].getTag().equals("green") || array[i1].getTag().equals("red")) {
+                array[i1].setBackgroundResource(R.drawable.green2);
+                array[i1].setTag("green2");
+            } else if (array[i1].getTag().equals("green2") || array[i1].getTag().equals("red2")) {
+                array[i1].setBackgroundResource(R.drawable.green3);
+                array[i1].setTag("green3");
+            } else if (array[i1].getTag().equals("green3") || array[i1].getTag().equals("red3")) {
+                array[i1].setBackgroundResource(R.drawable.green4);
+                array[i1].setTag("green4");
+            } else if (array[i1].getTag().equals("green4") || array[i1].getTag().equals("red4")) {
+                array[i1].setBackgroundResource(R.drawable.toe);
+                array[i1].setTag(" ");
+            } else {
+                array[i1].setBackgroundResource(R.drawable.green);
+                array[i1].setTag("green");
+
+            }
+            //button i2 check
+            if (array[i2].getTag().equals("green") || array[i2].getTag().equals("red")) {
+                array[i2].setBackgroundResource(R.drawable.green2);
+                array[i2].setTag("green2");
+            } else if (array[i2].getTag().equals("green2") || array[i2].getTag().equals("red2")) {
+                array[i2].setBackgroundResource(R.drawable.green3);
+                array[i2].setTag("green3");
+            } else if (array[i2].getTag().equals("green3") || array[i2].getTag().equals("red3")) {
+                array[i2].setBackgroundResource(R.drawable.green4);
+                array[i2].setTag("green4");
+            } else if (array[i2].getTag().equals("green4") || array[i2].getTag().equals("red4")) {
+                array[i2].setBackgroundResource(R.drawable.toe);
+                array[i2].setTag(" ");
+            } else {
+                array[i2].setBackgroundResource(R.drawable.green);
+                array[i2].setTag("green");
+
+            }
+            //button i3 check
+            if (array[i3].getTag().equals("green") || array[i3].getTag().equals("red")) {
+                array[i3].setBackgroundResource(R.drawable.green2);
+                array[i3].setTag("green2");
+            } else if (array[i3].getTag().equals("green2") || array[i3].getTag().equals("red2")) {
+                array[i3].setBackgroundResource(R.drawable.green3);
+                array[i3].setTag("green3");
+            } else if (array[i3].getTag().equals("green3") || array[i3].getTag().equals("red3")) {
+                array[i3].setBackgroundResource(R.drawable.green4);
+                array[i3].setTag("green4");
+            } else if (array[i3].getTag().equals("green4") || array[i3].getTag().equals("red4")) {
+                array[i3].setBackgroundResource(R.drawable.toe);
+                array[i3].setTag(" ");
+            } else {
+                array[i3].setBackgroundResource(R.drawable.green);
+                array[i3].setTag("green");
+
+            }
+            //button i4 check
+            if (array[i4].getTag().equals("green") || array[i4].getTag().equals("red")) {
+                array[i4].setBackgroundResource(R.drawable.green2);
+                array[i4].setTag("green2");
+            } else if (array[i4].getTag().equals("green2") || array[i4].getTag().equals("red2")) {
+                array[i4].setBackgroundResource(R.drawable.green3);
+                array[i4].setTag("green3");
+            } else if (array[i4].getTag().equals("green3") || array[i4].getTag().equals("red3")) {
+                array[i4].setBackgroundResource(R.drawable.green4);
+                array[i4].setTag("green4");
+            } else if (array[i4].getTag().equals("green4") || array[i4].getTag().equals("red4")) {
+                array[i4].setBackgroundResource(R.drawable.toe);
+                array[i4].setTag(" ");
+            } else {
+                array[i4].setBackgroundResource(R.drawable.green);
+                array[i4].setTag("green");
+
+            }
+            array[i].setBackgroundResource(R.drawable.toe);
+            array[i].setTag(" ");
+            check();
+        }
+    }
+
+    private void check3(int i, int i1, int i2, int i3) {
+
+        //red check button i
+        if (array[i].getTag().equals("red3")) {
+            //button i1 check
+            if (array[i1].getTag().equals("red") || array[i1].getTag().equals("green")) {
+                array[i1].setBackgroundResource(R.drawable.red2);
+                array[i1].setTag("red2");
+
+            } else if (array[i1].getTag().equals("red2") || array[i1].getTag().equals("green2")) {
+                array[i1].setBackgroundResource(R.drawable.red3);
+                array[i1].setTag("red3");
+            } else if (array[i1].getTag().equals("red3") || array[i1].getTag().equals("green3")) {
+                array[i1].setBackgroundResource(R.drawable.red4);
+                array[i1].setTag("red4");
+            } else {
+                array[i1].setBackgroundResource(R.drawable.red);
+                array[i1].setTag("red");
+
+            }
+            //button i2 check
+            if (array[i2].getTag().equals("red") || array[i2].getTag().equals("green")) {
+                array[i2].setBackgroundResource(R.drawable.red2);
+                array[i2].setTag("red2");
+            } else if (array[i2].getTag().equals("red2") || array[i2].getTag().equals("green2")) {
+                array[i2].setBackgroundResource(R.drawable.red3);
+                array[i2].setTag("red3");
+            } else if (array[i2].getTag().equals("red3") || array[i2].getTag().equals("green3")) {
+                array[i2].setBackgroundResource(R.drawable.red4);
+                array[i2].setTag("red4");
+            } else {
+                array[i2].setBackgroundResource(R.drawable.red);
+                array[i2].setTag("red");
+
+            }
+            //button i3 check
+            if (array[i3].getTag().equals("red") || array[i3].getTag().equals("green")) {
+                array[i3].setBackgroundResource(R.drawable.red2);
+                array[i3].setTag("red2");
+            } else if (array[i3].getTag().equals("red2") || array[i3].getTag().equals("green2")) {
+                array[i3].setBackgroundResource(R.drawable.red3);
+                array[i3].setTag("red3");
+            } else if (array[i3].getTag().equals("red3") || array[i3].getTag().equals("red3")) {
+                array[i3].setBackgroundResource(R.drawable.red4);
+                array[i3].setTag("red4");
+            } else {
+                array[i3].setBackgroundResource(R.drawable.red);
+                array[i3].setTag("red");
+
+            }
+            array[i].setBackgroundResource(R.drawable.toe);
+            array[i].setTag(" ");
+
+            check();
+        }
+        //green check button i
+        else if (array[i].getTag().equals("green3")) {
+            //button i1 check
+            if (array[i1].getTag().equals("green") || array[i1].getTag().equals("red")) {
+                array[i1].setBackgroundResource(R.drawable.green2);
+                array[i1].setTag("green2");
+            } else if (array[i1].getTag().equals("green2") || array[i1].getTag().equals("red2")) {
+                array[i1].setBackgroundResource(R.drawable.green3);
+                array[i1].setTag("green3");
+            } else if (array[i1].getTag().equals("green3") || array[i1].getTag().equals("red3")) {
+                array[i1].setBackgroundResource(R.drawable.green4);
+                array[i1].setTag("green4");
+            } else {
+                array[i1].setBackgroundResource(R.drawable.green);
+                array[i1].setTag("green");
+
+            }
+            //button i2 check
+            if (array[i2].getTag().equals("green") || array[i2].getTag().equals("red")) {
+                array[i2].setBackgroundResource(R.drawable.green2);
+                array[i2].setTag("green2");
+            } else if (array[i2].getTag().equals("green2") || array[i2].getTag().equals("red2")) {
+                array[i2].setBackgroundResource(R.drawable.green3);
+                array[i2].setTag("green3");
+            } else if (array[i2].getTag().equals("green3") || array[i2].getTag().equals("red3")) {
+                array[i2].setBackgroundResource(R.drawable.green4);
+                array[i2].setTag("green4");
+            } else {
+                array[i2].setBackgroundResource(R.drawable.green);
+                array[i2].setTag("green");
+
+            }
+            //button i3 check
+            if (array[i3].getTag().equals("green") || array[i3].getTag().equals("red")) {
+                array[i3].setBackgroundResource(R.drawable.green2);
+                array[i3].setTag("green2");
+            } else if (array[i3].getTag().equals("green2") || array[i3].getTag().equals("red2")) {
+                array[i3].setBackgroundResource(R.drawable.green3);
+                array[i3].setTag("green3");
+            } else if (array[i3].getTag().equals("green3") || array[i3].getTag().equals("red3")) {
+                array[i3].setBackgroundResource(R.drawable.green4);
+                array[i3].setTag("green4");
+            } else {
+                array[i3].setBackgroundResource(R.drawable.green);
+                array[i3].setTag("green");
+
+            }
+            array[i].setBackgroundResource(R.drawable.toe);
+            array[i].setTag(" ");
+            check();
+        }
+    }
+
+    private void check2(int i, int i1, int i2) {
+
+
+        //red check button i
+        if (array[i].getTag().equals("red2")) {
+            //button i1 check
+            if (array[i1].getTag().equals("red") || array[i1].getTag().equals("green")) {
+                array[i1].setBackgroundResource(R.drawable.red2);
+                array[i1].setTag("red2");
+
+            } else if (array[i1].getTag().equals("red2") || array[i1].getTag().equals("green2")) {
+                array[i1].setBackgroundResource(R.drawable.red3);
+                array[i1].setTag("red3");
+            } else {
+                array[i1].setBackgroundResource(R.drawable.red);
+                array[i1].setTag("red");
+
+            }
+            //button i2 check
+            if (array[i2].getTag().equals("red") || array[i2].getTag().equals("green")) {
+                array[i2].setBackgroundResource(R.drawable.red2);
+                array[i2].setTag("red2");
+            } else if (array[i2].getTag().equals("red2") || array[i2].getTag().equals("green2")) {
+                array[i2].setBackgroundResource(R.drawable.red3);
+                array[i2].setTag("red3");
+            } else {
+                array[i2].setBackgroundResource(R.drawable.red);
+                array[i2].setTag("red");
+
+            }
+            array[i].setBackgroundResource(R.drawable.toe);
+            array[i].setTag(" ");
+            check();
+
+        }
+        //green check button i
+        else if (array[i].getTag().equals("green2")) {
+            //button i1 check
+            if (array[i1].getTag().equals("green") || array[i1].getTag().equals("red")) {
+                array[i1].setBackgroundResource(R.drawable.green2);
+                array[i1].setTag("green2");
+            } else if (array[i1].getTag().equals("green2") || array[i1].getTag().equals("red2")) {
+                array[i1].setBackgroundResource(R.drawable.green3);
+                array[i1].setTag("green3");
+            } else {
+                array[i1].setBackgroundResource(R.drawable.green);
+                array[i1].setTag("green");
+
+            }
+            //button i2 check
+            if (array[i2].getTag().equals("green") || array[i2].getTag().equals("red")) {
+                array[i2].setBackgroundResource(R.drawable.green2);
+                array[i2].setTag("green2");
+            } else if (array[i2].getTag().equals("green2") || array[i2].getTag().equals("red2")) {
+                array[i2].setBackgroundResource(R.drawable.green3);
+                array[i2].setTag("green3");
+            } else {
+                array[i2].setBackgroundResource(R.drawable.green);
+                array[i2].setTag("green");
+
+            }
+            array[i].setBackgroundResource(R.drawable.toe);
+            array[i].setTag(" ");
+            check();
+        }
     }
 
     private void turnchk() {
         //turn check
         if (turn == 1) {
-         //   Toast.makeText(this, "Red's turn", Toast.LENGTH_SHORT).show();
+            //   Toast.makeText(this, "Red's turn", Toast.LENGTH_SHORT).show();
         } else if (turn == 2) {
-          //  Toast.makeText(this, "Green's turn", Toast.LENGTH_SHORT).show();
+            //  Toast.makeText(this, "Green's turn", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -577,7 +973,18 @@ public class MainActivity extends AppCompatActivity {
         array[49] = button50;
         for (int i = 0; i < 50; i++) {
             array[i].setTag(" ");
+            final int finalI = i;
+            Runnable runnable = new Runnable() {
+                @Override
+                public void run() {
+                    array[finalI].animate().rotationBy(360).withEndAction(this).setDuration(3000).setInterpolator(new LinearInterpolator()).start();
+                }
+            };
+
+            array[finalI].animate().rotationBy(360).withEndAction(runnable).setDuration(3000).setInterpolator(new LinearInterpolator()).start();
+
         }
+
     }
 
 
