@@ -5,6 +5,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -20,29 +21,30 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAuth fAuth;
     ImageButton button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12, button13, button14, button15, button16, button17, button18, button19, button20, button21, button22, button23, button24, button25, button26, button27, button28, button29, button30, button31, button32, button33, button34, button35, button36, button37, button38, button39, button40, button41, button42, button43, button44, button45, button46, button47, button48, button49, button50;
     ImageButton[] array = new ImageButton[51];
-    View imageView;
+    TextView PlayerTurn;
     private FirebaseAuth mAuth;
     private int turn;
-    private boolean green;
+    private boolean green, red;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_chain);
-
+        PlayerTurn = findViewById(R.id.PlayerTurn);
         final Button btn_multiplayer = findViewById(R.id.btn_multiplayer);
         btn_multiplayer.setVisibility(View.INVISIBLE);
         mAuth = FirebaseAuth.getInstance();
         fAuth = FirebaseAuth.getInstance();
         turn = 1;
         green = false;
-        imageView = findViewById(R.id.imageView);
+        red = false;
+
         mAuth.signInAnonymously().addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 Log.d("TAG", "signInAnonymously:onComplete:" + task.isSuccessful());
                 if (task.isSuccessful()) {
-                    btn_multiplayer.setVisibility(View.VISIBLE);
+                  //  btn_multiplayer.setVisibility(View.VISIBLE);
                     btn_multiplayer.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
@@ -425,6 +427,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         if (turn == 1 && array[j].getTag().equals(" ")) {
+            red = true;
             array[j].setBackgroundResource(R.drawable.red);
             //  array[j].setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary), android.graphics.PorterDuff.Mode.MULTIPLY);
             //  array[j].setColorFilter(Color.rgb(10,12,12));
@@ -476,13 +479,14 @@ public class MainActivity extends AppCompatActivity {
                 // Toast.makeText(this, "Red Wins", Toast.LENGTH_SHORT).show();
 
                 if (i == 49 && statusred) {
-                    if (green) {
+                    if (green && red) {
                         for (int j = 0; j < 50; j++) {
                             array[j].setTag(" ");
                             array[j].setBackgroundResource(R.drawable.toe);
                         }
                         Toast.makeText(this, "Red Wins", Toast.LENGTH_SHORT).show();
                         green = false;
+                        red = false;
 
                     }
                 }
@@ -494,13 +498,16 @@ public class MainActivity extends AppCompatActivity {
                 //Toast.makeText(this, "Green Wins", Toast.LENGTH_SHORT).show();
 
                 if (i == 49 && statusgreen) {
-                    for (int j = 0; j < 50; j++) {
-                        array[j].setTag(" ");
-                        array[j].setBackgroundResource(R.drawable.toe);
-                    }
+                    if (green && red) {
+                        for (int j = 0; j < 50; j++) {
+                            array[j].setTag(" ");
+                            array[j].setBackgroundResource(R.drawable.toe);
+                        }
 
-                    Toast.makeText(this, "Green Wins", Toast.LENGTH_SHORT).show();
-                    green = false;
+                        Toast.makeText(this, "Green Wins", Toast.LENGTH_SHORT).show();
+                        green = false;
+                        red = false;
+                    }
                 }
             } else {
                 statusgreen = false;
@@ -909,14 +916,19 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
     private void turnchk() {
         //turn check
         if (turn == 1) {
 
-
-            //  imageView.setBackgroundResource(R.drawable.background_red);
+            PlayerTurn.setText("Red");
+            PlayerTurn.setBackgroundResource(R.color.red); //  imageView.setBackgroundResource(R.drawable.background_red);
             //   Toast.makeText(this, "Red's turn", Toast.LENGTH_SHORT).show();
         } else if (turn == 2) {
+
+            PlayerTurn.setText("Green");
+
+            PlayerTurn.setBackgroundResource(R.color.green);
             //   imageView.setBackgroundResource(R.drawable.background_green);
             //  Toast.makeText(this, "Green's turn", Toast.LENGTH_SHORT).show();
         }
