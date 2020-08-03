@@ -3,7 +3,6 @@ package com.armscreation.a_games.chain;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.LinearInterpolator;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -21,8 +20,10 @@ public class MainActivity extends AppCompatActivity {
     FirebaseAuth fAuth;
     ImageButton button1, button2, button3, button4, button5, button6, button7, button8, button9, button10, button11, button12, button13, button14, button15, button16, button17, button18, button19, button20, button21, button22, button23, button24, button25, button26, button27, button28, button29, button30, button31, button32, button33, button34, button35, button36, button37, button38, button39, button40, button41, button42, button43, button44, button45, button46, button47, button48, button49, button50;
     ImageButton[] array = new ImageButton[51];
+    View imageView;
     private FirebaseAuth mAuth;
     private int turn;
+    private boolean green;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,8 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         fAuth = FirebaseAuth.getInstance();
         turn = 1;
-
+        green = false;
+        imageView = findViewById(R.id.imageView);
         mAuth.signInAnonymously().addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -424,16 +426,19 @@ public class MainActivity extends AppCompatActivity {
 
         if (turn == 1 && array[j].getTag().equals(" ")) {
             array[j].setBackgroundResource(R.drawable.red);
-
+            //  array[j].setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary), android.graphics.PorterDuff.Mode.MULTIPLY);
+            //  array[j].setColorFilter(Color.rgb(10,12,12));
+            //  array[j].setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary));
             array[j].setTag("red");
             turn = 2;
         } else if (turn == 2 && array[j].getTag().equals(" ")) {
+            green = true;
             array[j].setBackgroundResource(R.drawable.green);
             array[j].setTag("green");
             turn = 1;
         } else if (turn == 1 && array[j].getTag().equals("red")) {
             array[j].setBackgroundResource(R.drawable.red2);
-             array[j].setTag("red2");
+            array[j].setTag("red2");
             turn = 2;
         } else if (turn == 2 && array[j].getTag().equals("green")) {
             array[j].setBackgroundResource(R.drawable.green2);
@@ -457,13 +462,56 @@ public class MainActivity extends AppCompatActivity {
             turn = 1;
         }
 
-        turnchk();
 
         check();
+        turnchk();
+        // resultchk();
+    }
+
+    private void resultchk() {
+
+        boolean statusred = true, statusgreen = true;
+        for (int i = 0; i <= 49; i++) {
+            if ((array[i].getTag().equals("red") || array[i].getTag().equals("red2") || array[i].getTag().equals("red3") || array[i].getTag().equals("red4") || array[i].getTag().equals(" "))) {
+                // Toast.makeText(this, "Red Wins", Toast.LENGTH_SHORT).show();
+
+                if (i == 49 && statusred) {
+                    if (green) {
+                        for (int j = 0; j < 50; j++) {
+                            array[j].setTag(" ");
+                            array[j].setBackgroundResource(R.drawable.toe);
+                        }
+                        Toast.makeText(this, "Red Wins", Toast.LENGTH_SHORT).show();
+                        green = false;
+
+                    }
+                }
+            } else {
+                statusred = false;
+            }
+
+            if ((array[i].getTag().equals("green") || array[i].getTag().equals("green2") || array[i].getTag().equals("green3") || array[i].getTag().equals("green4") || array[i].getTag().equals(" "))) {
+                //Toast.makeText(this, "Green Wins", Toast.LENGTH_SHORT).show();
+
+                if (i == 49 && statusgreen) {
+                    for (int j = 0; j < 50; j++) {
+                        array[j].setTag(" ");
+                        array[j].setBackgroundResource(R.drawable.toe);
+                    }
+
+                    Toast.makeText(this, "Green Wins", Toast.LENGTH_SHORT).show();
+                    green = false;
+                }
+            } else {
+                statusgreen = false;
+            }
+        }
+
+
     }
 
     private void check() {
-
+        resultchk();
         check2(0, 1, 5);
         check2(4, 3, 9);
         check2(45, 40, 46);
@@ -496,29 +544,29 @@ public class MainActivity extends AppCompatActivity {
         check3(44, 39, 43, 49);
 
         check4(6, 1, 7, 11, 5);
-        check4(7,2,8,12,6);
-        check4(8,3,9,13,7);
-        check4(11,6,12,16,10);
-        check4(12,7,13,17,11);
-        check4(13,8,14,18,12);
-        check4(16,11,17,21,15);
-        check4(17,12,18,22,16);
-        check4(18,13,19,23,17);
-        check4(21,16,22,26,20);
-        check4(22,17,23,27,21);
-        check4(23,18,24,28,22);
-        check4(26,21,27,31,25);
-        check4(27,22,28,32,26);
-        check4(28,23,29,33,27);
-        check4(31,26,32,36,30);
-        check4(32,27,33,37,31);
-        check4(33,28,34,38,32);
-        check4(36,31,37,41,35);
-        check4(37,32,38,42,36);
-        check4(38,33,39,43,37);
-        check4(41,36,42,46,40);
-        check4(42,37,43,47,41);
-        check4(43,38,44,48,42);
+        check4(7, 2, 8, 12, 6);
+        check4(8, 3, 9, 13, 7);
+        check4(11, 6, 12, 16, 10);
+        check4(12, 7, 13, 17, 11);
+        check4(13, 8, 14, 18, 12);
+        check4(16, 11, 17, 21, 15);
+        check4(17, 12, 18, 22, 16);
+        check4(18, 13, 19, 23, 17);
+        check4(21, 16, 22, 26, 20);
+        check4(22, 17, 23, 27, 21);
+        check4(23, 18, 24, 28, 22);
+        check4(26, 21, 27, 31, 25);
+        check4(27, 22, 28, 32, 26);
+        check4(28, 23, 29, 33, 27);
+        check4(31, 26, 32, 36, 30);
+        check4(32, 27, 33, 37, 31);
+        check4(33, 28, 34, 38, 32);
+        check4(36, 31, 37, 41, 35);
+        check4(37, 32, 38, 42, 36);
+        check4(38, 33, 39, 43, 37);
+        check4(41, 36, 42, 46, 40);
+        check4(42, 37, 43, 47, 41);
+        check4(43, 38, 44, 48, 42);
 
     }
 
@@ -864,8 +912,12 @@ public class MainActivity extends AppCompatActivity {
     private void turnchk() {
         //turn check
         if (turn == 1) {
+
+
+            //  imageView.setBackgroundResource(R.drawable.background_red);
             //   Toast.makeText(this, "Red's turn", Toast.LENGTH_SHORT).show();
         } else if (turn == 2) {
+            //   imageView.setBackgroundResource(R.drawable.background_green);
             //  Toast.makeText(this, "Green's turn", Toast.LENGTH_SHORT).show();
         }
     }
@@ -973,16 +1025,16 @@ public class MainActivity extends AppCompatActivity {
         array[49] = button50;
         for (int i = 0; i < 50; i++) {
             array[i].setTag(" ");
-            final int finalI = i;
-            Runnable runnable = new Runnable() {
-                @Override
-                public void run() {
-                    array[finalI].animate().rotationBy(360).withEndAction(this).setDuration(6000).setInterpolator(new LinearInterpolator()).start();
-                }
+            /**
+             final int finalI = i;
+             Runnable runnable = new Runnable() {
+            @Override public void run() {
+            array[finalI].animate().rotationBy(360).withEndAction(this).setDuration(6000).setInterpolator(new LinearInterpolator()).start();
+            }
             };
 
-            array[finalI].animate().rotationBy(360).withEndAction(runnable).setDuration(6000).setInterpolator(new LinearInterpolator()).start();
-
+             array[finalI].animate().rotationBy(360).withEndAction(runnable).setDuration(6000).setInterpolator(new LinearInterpolator()).start();
+             **/
         }
 
     }
