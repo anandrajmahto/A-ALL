@@ -28,6 +28,12 @@
         <activity android:name="com.armscreation.a_games.chain.Join"/>
 
 
+        <activity android:name="com.armscreation.a_games.chainpro.Splash"/>
+        <activity android:name="com.armscreation.a_games.chainpro.Host"/>
+        <activity android:name="com.armscreation.a_games.chainpro.MainActivity"/>
+        <activity android:name="com.armscreation.a_games.chainpro.Join"/>
+
+
         <activity android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>

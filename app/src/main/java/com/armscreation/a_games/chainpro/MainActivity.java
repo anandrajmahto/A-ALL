@@ -1,7 +1,10 @@
-package com.armscreation.a_games.chain;
+package com.armscreation.a_games.chainpro;
 
 import android.content.DialogInterface;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.SystemClock;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -38,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_chain);
+        setContentView(R.layout.activity_main_chainpro);
         final Button btn_multiplayer = findViewById(R.id.btn_multiplayer);
         btn_multiplayer.setVisibility(View.INVISIBLE);
         mAuth = FirebaseAuth.getInstance();
@@ -72,7 +75,8 @@ public class MainActivity extends AppCompatActivity {
         SingleChoice();
         initialize();
         onclicklistners();
-        turnchk();
+     //   turnchk();
+       // colourSwitch();
 
 
     }
@@ -88,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 Users = Integer.parseInt(listItems[which]);
                 turnchk();
+              //  colourSwitch();
                 // Toast.makeText(MainActivity.this, " Value: " + listItems[which], Toast.LENGTH_LONG).show();
 
             }
@@ -1431,6 +1436,47 @@ public class MainActivity extends AppCompatActivity {
              array[finalI].animate().rotationBy(360).withEndAction(runnable).setDuration(6000).setInterpolator(new LinearInterpolator()).start();
              **/
         }
+        for (int i = 0; i < 50; i++) {
+
+           // array[i].setBackgroundColor(Color.rgb(100, 100, 50));
+
+        }
+
+
+    }
+    void colourSwitch(){
+        final Handler handler = new Handler();
+        Runnable runnable = new Runnable() {
+            int i;
+            public void run() {
+                for (i = 0; i < 6; i++) {
+                    if (i!=0){
+
+                        if (array[i-1].getTag().equals(" ")) {
+                            array[i - 1].setBackgroundResource(R.drawable.toe);
+                        }
+                        else if (array[i-1].getTag().equals(red)) {
+                            array[i - 1].setBackgroundResource(R.drawable.red);
+                        }else if (array[i-1].getTag().equals(green)) {
+                            array[i - 1].setBackgroundResource(R.drawable.green);
+                        }else if (array[i-1].getTag().equals(blue)) {
+                            array[i - 1].setBackgroundResource(R.drawable.blue);
+                        }
+                    }
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            // need to do tasks on the UI thread
+
+                            array[i].setBackgroundColor(Color.rgb(100, 100, 50));
+                        }
+                    }, 10);
+                    //Add some downtime
+                    SystemClock.sleep(500);
+                }
+            }
+        };
+        new Thread(runnable).start();
     }
 
 }

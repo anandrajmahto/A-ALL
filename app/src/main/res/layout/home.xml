@@ -138,6 +138,45 @@
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
+        <androidx.cardview.widget.CardView
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:id="@+id/chain_reaction_pro"
+            android:layout_width="160dp"
+            android:layout_height="190dp"
+            android:layout_margin="10dp"
+            tools:ignore="KeyboardInaccessibleWidget">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
 
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+
+                android:background="@drawable/chain_reaction"
+                android:padding="10dp"
+                tools:ignore="ContentDescription" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:layout_margin="10dp"
+                android:background="@color/design_default_color_on_secondary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="5dp"
+                android:text="Chain Reaction Pro"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="18sp"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+        </androidx.cardview.widget.CardView>
     </LinearLayout>
 </LinearLayout>
