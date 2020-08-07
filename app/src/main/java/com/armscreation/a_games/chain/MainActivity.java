@@ -44,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);//will hide the title
         getSupportActionBar().hide(); //hide the title bar
         setContentView(R.layout.activity_main_chain);
-        final Button btn_multiplayer = findViewById(R.id.btn_multiplayer);
-        btn_multiplayer.setVisibility(View.INVISIBLE);
+       // final Button btn_multiplayer = findViewById(R.id.btn_multiplayer);
+     //   btn_multiplayer.setVisibility(View.INVISIBLE);
         mAuth = FirebaseAuth.getInstance();
         fAuth = FirebaseAuth.getInstance();
         mAuth.signInAnonymously().addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("TAG", "signInAnonymously:onComplete:" + task.isSuccessful());
                 if (task.isSuccessful()) {
                     //  btn_multiplayer.setVisibility(View.VISIBLE);
-                    btn_multiplayer.setOnClickListener(new View.OnClickListener() {
+                  /** btn_multiplayer.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
                             Toast.makeText(MainActivity.this, "Comming Soon", Toast.LENGTH_LONG).show();
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
 
                         }
                     });
-
+**/
 
                 } else {
 
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
         SingleChoice();
         initialize();
         onclicklistners();
-        turnchk();
+      //  turnchk();
 
 
     }
@@ -1261,18 +1261,24 @@ public class MainActivity extends AppCompatActivity {
 
     private void turnchk() {
         //turn check
-
+        //colourSwitch(0);
         if (Users == 2) {
             if (turn == 1) {
 
-                PlayerTurn.setText("Red");
-                PlayerTurn.setBackgroundResource(R.color.red); //  imageView.setBackgroundResource(R.drawable.background_red);
+
+                for (int i = 0; i < 50; i++) {
+                    array[i].setImageResource(R.drawable.border_red);
+                }
+                // tableLayout.setBackgroundResource(R.drawable.border_red);
+                //  imageView.setBackgroundResource(R.drawable.background_red);
                 //   Toast.makeText(this, "Red's turn", Toast.LENGTH_SHORT).show();
             } else if (turn == 2) {
 
-                PlayerTurn.setText("Green");
 
-                PlayerTurn.setBackgroundResource(R.color.green);
+                for (int i = 0; i < 50; i++) {
+                    array[i].setImageResource(R.drawable.border_green);
+                }
+                // tableLayout.setBackgroundResource(R.drawable.border_green);
                 //   imageView.setBackgroundResource(R.drawable.background_green);
                 //  Toast.makeText(this, "Green's turn", Toast.LENGTH_SHORT).show();
             }
@@ -1283,8 +1289,11 @@ public class MainActivity extends AppCompatActivity {
                     turn = 2;
                     turnchk();
                 } else {
-                    PlayerTurn.setText("Red");
-                    PlayerTurn.setBackgroundResource(R.color.red); //  imageView.setBackgroundResource(R.drawable.background_red);
+
+                    //  tableLayout.setBackgroundResource(R.drawable.border_red);
+                    for (int i = 0; i < 50; i++) {
+                        array[i].setImageResource(R.drawable.border_red);
+                    }//  imageView.setBackgroundResource(R.drawable.background_red);
                     //   Toast.makeText(this, "Red's turn", Toast.LENGTH_SHORT).show();
                 }
             } else if (turn == 2) {
@@ -1292,9 +1301,11 @@ public class MainActivity extends AppCompatActivity {
                     turn = 3;
                     turnchk();
                 } else {
-                    PlayerTurn.setText("Green");
 
-                    PlayerTurn.setBackgroundResource(R.color.green);
+                    //tableLayout.setBackgroundResource(R.drawable.border_green);
+                    for (int i = 0; i < 50; i++) {
+                        array[i].setImageResource(R.drawable.border_green);
+                    }
                     //   imageView.setBackgroundResource(R.drawable.background_green);
                     //  Toast.makeText(this, "Green's turn", Toast.LENGTH_SHORT).show();
                 }
@@ -1303,9 +1314,11 @@ public class MainActivity extends AppCompatActivity {
                     turn = 1;
                     turnchk();
                 } else {
-                    PlayerTurn.setText("Blue");
 
-                    PlayerTurn.setBackgroundResource(R.color.blue);
+                    // tableLayout.setBackgroundResource(R.drawable.border_blue);
+                    for (int i = 0; i < 50; i++) {
+                        array[i].setImageResource(R.drawable.border_blue);
+                    }
                     //   imageView.setBackgroundResource(R.drawable.background_green);
                     //  Toast.makeText(this, "Green's turn", Toast.LENGTH_SHORT).show();
                 }
@@ -1314,7 +1327,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initialize() {
-        PlayerTurn = findViewById(R.id.PlayerTurn);
+       // PlayerTurn = findViewById(R.id.PlayerTurn);
 
         turn = 1;
         green = false;

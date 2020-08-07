@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean green, red, blue;
     private int Users;
     private boolean RedOut, GreenOut, BlueOut;
+    private int Colour_box_no;
 
 
     @Override
@@ -52,9 +53,9 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);//hide the top dock
         requestWindowFeature(Window.FEATURE_NO_TITLE);//will hide the title
         getSupportActionBar().hide(); //hide the title bar
-        setContentView(R.layout.activity_main_chainpro);
-        final Button btn_multiplayer = findViewById(R.id.btn_multiplayer);
-        btn_multiplayer.setVisibility(View.INVISIBLE);
+        setContentView(R.layout.demo);
+       // final Button btn_multiplayer = findViewById(R.id.btn_multiplayer);
+      //  btn_multiplayer.setVisibility(View.INVISIBLE);
         mAuth = FirebaseAuth.getInstance();
         fAuth = FirebaseAuth.getInstance();
         mAuth.signInAnonymously().addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -62,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 Log.d("TAG", "signInAnonymously:onComplete:" + task.isSuccessful());
                 if (task.isSuccessful()) {
+               /**
+
                     //  btn_multiplayer.setVisibility(View.VISIBLE);
                     btn_multiplayer.setOnClickListener(new View.OnClickListener() {
                         @Override
@@ -72,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     });
 
-
+**/
                 } else {
 
                     Toast.makeText(MainActivity.this, "Error Signing-in !!", Toast.LENGTH_LONG).show();
@@ -87,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         initialize();
         onclicklistners();
         //   turnchk();
-        // colourSwitch();
+       //colourSwitch();
 
 
     }
@@ -103,7 +106,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 Users = Integer.parseInt(listItems[which]);
                 turnchk();
-                //colourSwitch(0);
+                ////colourSwitch(0);
                 // Toast.makeText(MainActivity.this, " Value: " + listItems[which], Toast.LENGTH_LONG).show();
 
             }
@@ -119,7 +122,7 @@ public class MainActivity extends AppCompatActivity {
         button1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(0);
+                //colourSwitch(0);
                 btn(0);
 
             }
@@ -127,63 +130,63 @@ public class MainActivity extends AppCompatActivity {
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(1);
+                //colourSwitch(1);
                 btn(1);
             }
         });
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(2);
+                //colourSwitch(2);
                 btn(2);
             }
         });
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(3);
+                //colourSwitch(3);
                 btn(3);
             }
         });
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(4);
+                //colourSwitch(4);
                 btn(4);
             }
         });
         button6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(5);
+                //colourSwitch(5);
                 btn(5);
             }
         });
         button7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(6);
+                //colourSwitch(6);
                 btn(6);
             }
         });
         button8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(7);
+                //colourSwitch(7);
                 btn(7);
             }
         });
         button9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(8);
+                //colourSwitch(8);
                 btn(8);
             }
         });
         button10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(9);
+                //colourSwitch(9);
                 btn(9);
 
             }
@@ -191,7 +194,7 @@ public class MainActivity extends AppCompatActivity {
         button11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(10);
+                //colourSwitch(10);
                 btn(10);
 
             }
@@ -199,7 +202,7 @@ public class MainActivity extends AppCompatActivity {
         button12.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(11);
+                //colourSwitch(11);
                 btn(11);
 
             }
@@ -207,7 +210,7 @@ public class MainActivity extends AppCompatActivity {
         button13.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(12);
+                //colourSwitch(12);
                 btn(12);
 
             }
@@ -215,7 +218,7 @@ public class MainActivity extends AppCompatActivity {
         button14.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(13);
+                //colourSwitch(13);
                 btn(13);
 
             }
@@ -223,7 +226,7 @@ public class MainActivity extends AppCompatActivity {
         button15.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(14);
+                //colourSwitch(14);
                 btn(14);
 
             }
@@ -231,7 +234,7 @@ public class MainActivity extends AppCompatActivity {
         button16.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(15);
+                //colourSwitch(15);
                 btn(15);
 
             }
@@ -239,7 +242,7 @@ public class MainActivity extends AppCompatActivity {
         button17.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(16);
+                //colourSwitch(16);
                 btn(16);
 
             }
@@ -247,7 +250,7 @@ public class MainActivity extends AppCompatActivity {
         button18.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(17);
+                //colourSwitch(17);
                 btn(17);
 
             }
@@ -255,7 +258,7 @@ public class MainActivity extends AppCompatActivity {
         button19.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(18);
+                //colourSwitch(18);
                 btn(18);
 
             }
@@ -263,7 +266,7 @@ public class MainActivity extends AppCompatActivity {
         button20.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(19);
+                //colourSwitch(19);
                 btn(19);
 
             }
@@ -271,7 +274,7 @@ public class MainActivity extends AppCompatActivity {
         button21.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(20);
+                //colourSwitch(20);
                 btn(20);
 
             }
@@ -279,7 +282,7 @@ public class MainActivity extends AppCompatActivity {
         button22.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(21);
+                //colourSwitch(21);
                 btn(21);
 
             }
@@ -287,7 +290,7 @@ public class MainActivity extends AppCompatActivity {
         button23.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(22);
+                //colourSwitch(22);
                 btn(22);
 
             }
@@ -295,7 +298,7 @@ public class MainActivity extends AppCompatActivity {
         button24.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(23);
+                //colourSwitch(23);
                 btn(23);
 
             }
@@ -303,7 +306,7 @@ public class MainActivity extends AppCompatActivity {
         button25.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(24);
+                //colourSwitch(24);
                 btn(24);
 
             }
@@ -311,7 +314,7 @@ public class MainActivity extends AppCompatActivity {
         button26.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(25);
+                //colourSwitch(25);
                 btn(25);
 
             }
@@ -319,7 +322,7 @@ public class MainActivity extends AppCompatActivity {
         button27.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(26);
+                //colourSwitch(26);
                 btn(26);
 
             }
@@ -327,7 +330,7 @@ public class MainActivity extends AppCompatActivity {
         button28.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(27);
+                //colourSwitch(27);
                 btn(27);
 
             }
@@ -335,7 +338,7 @@ public class MainActivity extends AppCompatActivity {
         button29.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(28);
+                //colourSwitch(28);
                 btn(28);
 
             }
@@ -343,7 +346,7 @@ public class MainActivity extends AppCompatActivity {
         button30.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(29);
+                //colourSwitch(29);
                 btn(29);
 
             }
@@ -351,7 +354,7 @@ public class MainActivity extends AppCompatActivity {
         button31.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(30);
+                //colourSwitch(30);
                 btn(30);
 
             }
@@ -359,7 +362,7 @@ public class MainActivity extends AppCompatActivity {
         button32.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(31);
+                //colourSwitch(31);
                 btn(31);
 
             }
@@ -367,7 +370,7 @@ public class MainActivity extends AppCompatActivity {
         button33.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(32);
+                //colourSwitch(32);
                 btn(32);
 
             }
@@ -375,7 +378,7 @@ public class MainActivity extends AppCompatActivity {
         button34.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(33);
+                //colourSwitch(33);
                 btn(33);
 
             }
@@ -383,7 +386,7 @@ public class MainActivity extends AppCompatActivity {
         button35.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(34);
+                //colourSwitch(34);
                 btn(34);
 
             }
@@ -391,7 +394,7 @@ public class MainActivity extends AppCompatActivity {
         button36.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(35);
+                //colourSwitch(35);
                 btn(35);
 
             }
@@ -399,7 +402,7 @@ public class MainActivity extends AppCompatActivity {
         button37.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(36);
+                //colourSwitch(36);
                 btn(36);
 
             }
@@ -407,7 +410,7 @@ public class MainActivity extends AppCompatActivity {
         button38.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(37);
+                //colourSwitch(37);
                 btn(37);
 
             }
@@ -415,7 +418,7 @@ public class MainActivity extends AppCompatActivity {
         button39.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(38);
+                //colourSwitch(38);
                 btn(38);
 
             }
@@ -423,7 +426,7 @@ public class MainActivity extends AppCompatActivity {
         button40.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(39);
+                //colourSwitch(39);
                 btn(39);
 
             }
@@ -431,7 +434,7 @@ public class MainActivity extends AppCompatActivity {
         button41.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(40);
+                //colourSwitch(40);
                 btn(40);
 
             }
@@ -439,7 +442,7 @@ public class MainActivity extends AppCompatActivity {
         button42.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(41);
+                //colourSwitch(41);
                 btn(41);
 
             }
@@ -447,7 +450,7 @@ public class MainActivity extends AppCompatActivity {
         button43.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(42);
+                //colourSwitch(42);
                 btn(42);
 
             }
@@ -455,7 +458,7 @@ public class MainActivity extends AppCompatActivity {
         button44.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(43);
+                //colourSwitch(43);
                 btn(43);
 
             }
@@ -463,7 +466,7 @@ public class MainActivity extends AppCompatActivity {
         button45.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(44);
+                //colourSwitch(44);
                 btn(44);
 
             }
@@ -471,7 +474,7 @@ public class MainActivity extends AppCompatActivity {
         button46.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(45);
+                //colourSwitch(45);
                 btn(45);
 
             }
@@ -479,7 +482,7 @@ public class MainActivity extends AppCompatActivity {
         button47.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(46);
+                //colourSwitch(46);
                 btn(46);
 
             }
@@ -487,7 +490,7 @@ public class MainActivity extends AppCompatActivity {
         button48.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(47);
+                //colourSwitch(47);
                 btn(47);
 
             }
@@ -495,7 +498,7 @@ public class MainActivity extends AppCompatActivity {
         button49.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(48);
+                //colourSwitch(48);
                 btn(48);
 
             }
@@ -503,7 +506,7 @@ public class MainActivity extends AppCompatActivity {
         button50.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(49);
+                //colourSwitch(49);
                 btn(49);
 
             }
@@ -511,693 +514,693 @@ public class MainActivity extends AppCompatActivity {
         button51.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(50);
+                //colourSwitch(50);
                 btn(50);
             }
         });
         button52.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(51);
+                //colourSwitch(51);
                 btn(51);
             }
         });
         button53.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(52);
+                //colourSwitch(52);
                 btn(52);
             }
         });
         button54.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(53);
+                //colourSwitch(53);
                 btn(53);
             }
         });
         button55.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(54);
+                //colourSwitch(54);
                 btn(54);
             }
         });
         button56.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(55);
+                //colourSwitch(55);
                 btn(55);
             }
         });
         button57.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(56);
+                //colourSwitch(56);
                 btn(56);
             }
         });
         button58.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(57);
+                //colourSwitch(57);
                 btn(57);
             }
         });
         button59.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(58);
+                //colourSwitch(58);
                 btn(58);
             }
         });
         button60.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(59);
+                //colourSwitch(59);
                 btn(59);
             }
         });
         button61.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(60);
+                //colourSwitch(60);
                 btn(60);
             }
         });
         button62.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(61);
+                //colourSwitch(61);
                 btn(61);
             }
         });
         button63.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(62);
+                //colourSwitch(62);
                 btn(62);
             }
         });
         button64.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(63);
+                //colourSwitch(63);
                 btn(63);
             }
         });
         button65.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(64);
+                //colourSwitch(64);
                 btn(64);
             }
         });
         button66.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(65);
+                //colourSwitch(65);
                 btn(65);
             }
         });
         button67.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(66);
+                //colourSwitch(66);
                 btn(66);
             }
         });
         button68.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(67);
+                //colourSwitch(67);
                 btn(67);
             }
         });
         button69.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(68);
+                //colourSwitch(68);
                 btn(68);
             }
         });
         button70.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(69);
+                //colourSwitch(69);
                 btn(69);
             }
         });
         button71.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(70);
+                //colourSwitch(70);
                 btn(70);
             }
         });
         button72.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(71);
+                //colourSwitch(71);
                 btn(71);
             }
         });
         button73.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(72);
+                //colourSwitch(72);
                 btn(72);
             }
         });
         button74.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(73);
+                //colourSwitch(73);
                 btn(73);
             }
         });
         button75.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(74);
+                //colourSwitch(74);
                 btn(74);
             }
         });
         button76.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(75);
+                //colourSwitch(75);
                 btn(75);
             }
         });
         button77.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(76);
+                //colourSwitch(76);
                 btn(76);
             }
         });
         button78.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(77);
+                //colourSwitch(77);
                 btn(77);
             }
         });
         button79.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(78);
+                //colourSwitch(78);
                 btn(78);
             }
         });
         button80.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(79);
+                //colourSwitch(79);
                 btn(79);
             }
         });
         button81.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(80);
+                //colourSwitch(80);
                 btn(80);
             }
         });
         button82.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(81);
+                //colourSwitch(81);
                 btn(81);
             }
         });
         button83.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(82);
+                //colourSwitch(82);
                 btn(82);
             }
         });
         button84.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(83);
+                //colourSwitch(83);
                 btn(83);
             }
         });
         button85.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(84);
+                //colourSwitch(84);
                 btn(84);
             }
         });
         button86.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(85);
+                //colourSwitch(85);
                 btn(85);
             }
         });
         button87.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(86);
+                //colourSwitch(86);
                 btn(86);
             }
         });
         button88.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(87);
+                //colourSwitch(87);
                 btn(87);
             }
         });
         button89.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(88);
+                //colourSwitch(88);
                 btn(88);
             }
         });
         button90.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(89);
+                //colourSwitch(89);
                 btn(89);
             }
         });
         button91.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(90);
+                //colourSwitch(90);
                 btn(90);
             }
         });
         button92.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(91);
+                //colourSwitch(91);
                 btn(91);
             }
         });
         button93.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(92);
+                //colourSwitch(92);
                 btn(92);
             }
         });
         button94.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(93);
+                //colourSwitch(93);
                 btn(93);
             }
         });
         button95.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(94);
+                //colourSwitch(94);
                 btn(94);
             }
         });
         button96.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(95);
+                //colourSwitch(95);
                 btn(95);
             }
         });
         button97.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(96);
+                //colourSwitch(96);
                 btn(96);
             }
         });
         button98.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(97);
+                //colourSwitch(97);
                 btn(97);
             }
         });
         button99.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(98);
+                //colourSwitch(98);
                 btn(98);
             }
         });
         button100.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(99);
+                //colourSwitch(99);
                 btn(99);
             }
         });
         button101.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(100);
+                //colourSwitch(100);
                 btn(100);
             }
         });
         button102.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(101);
+                //colourSwitch(101);
                 btn(101);
             }
         });
         button103.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(102);
+                //colourSwitch(102);
                 btn(102);
             }
         });
         button104.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(103);
+                //colourSwitch(103);
                 btn(103);
             }
         });
         button105.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(104);
+                //colourSwitch(104);
                 btn(104);
             }
         });
         button106.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(105);
+                //colourSwitch(105);
                 btn(105);
             }
         });
         button107.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(106);
+                //colourSwitch(106);
                 btn(106);
             }
         });
         button108.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(107);
+                //colourSwitch(107);
                 btn(107);
             }
         });
         button109.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(108);
+                //colourSwitch(108);
                 btn(108);
             }
         });
         button110.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(109);
+                //colourSwitch(109);
                 btn(109);
             }
         });
         button111.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(110);
+                //colourSwitch(110);
                 btn(110);
             }
         });
         button112.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(111);
+                //colourSwitch(111);
                 btn(111);
             }
         });
         button113.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(112);
+                //colourSwitch(112);
                 btn(112);
             }
         });
         button114.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(113);
+                //colourSwitch(113);
                 btn(113);
             }
         });
         button115.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(114);
+                //colourSwitch(114);
                 btn(114);
             }
         });
         button116.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(115);
+                //colourSwitch(115);
                 btn(115);
             }
         });
         button117.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(116);
+                //colourSwitch(116);
                 btn(116);
             }
         });
         button118.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(117);
+                //colourSwitch(117);
                 btn(117);
             }
         });
         button119.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(118);
+                //colourSwitch(118);
                 btn(118);
             }
         });
         button120.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(119);
+                //colourSwitch(119);
                 btn(119);
             }
         });
         button121.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(120);
+                //colourSwitch(120);
                 btn(120);
             }
         });
         button122.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(121);
+                //colourSwitch(121);
                 btn(121);
             }
         });
         button123.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(122);
+                //colourSwitch(122);
                 btn(122);
             }
         });
         button124.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(123);
+                //colourSwitch(123);
                 btn(123);
             }
         });
         button125.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(124);
+                //colourSwitch(124);
                 btn(124);
             }
         });
         button126.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(125);
+                //colourSwitch(125);
                 btn(125);
             }
         });
         button127.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(126);
+                //colourSwitch(126);
                 btn(126);
             }
         });
         button128.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(127);
+                //colourSwitch(127);
                 btn(127);
             }
         });
         button129.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(128);
+                //colourSwitch(128);
                 btn(128);
             }
         });
         button130.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(129);
+                //colourSwitch(129);
                 btn(129);
             }
         });
         button131.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(130);
+                //colourSwitch(130);
                 btn(130);
             }
         });
         button132.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(131);
+                //colourSwitch(131);
                 btn(131);
             }
         });
         button133.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(132);
+                //colourSwitch(132);
                 btn(132);
             }
         });
         button134.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(133);
+                //colourSwitch(133);
                 btn(133);
             }
         });
         button135.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(134);
+                //colourSwitch(134);
                 btn(134);
             }
         });
         button136.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(135);
+                //colourSwitch(135);
                 btn(135);
             }
         });
         button137.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(136);
+                //colourSwitch(136);
                 btn(136);
             }
         });
         button138.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(137);
+                //colourSwitch(137);
                 btn(137);
             }
         });
         button139.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(138);
+                //colourSwitch(138);
                 btn(138);
             }
         });
         button140.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(139);
+                //colourSwitch(139);
                 btn(139);
             }
         });
         button141.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(140);
+                //colourSwitch(140);
                 btn(140);
             }
         });
         button142.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(141);
+                //colourSwitch(141);
                 btn(141);
             }
         });
         button143.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(142);
+                //colourSwitch(142);
                 btn(142);
             }
         });
         button144.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(143);
+                //colourSwitch(143);
                 btn(143);
             }
         });
         button145.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(144);
+                //colourSwitch(144);
                 btn(144);
             }
         });
         button146.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(145);
+                //colourSwitch(145);
                 btn(145);
             }
         });
         button147.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(146);
+                //colourSwitch(146);
                 btn(146);
             }
         });
         button148.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(147);
+                //colourSwitch(147);
                 btn(147);
             }
         });
         button149.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                colourSwitch(148);
+                //colourSwitch(148);
                 btn(148);
             }
         });
@@ -2455,6 +2458,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void colourSwitch(final int j) {
+
         final int min = 1;
         final int max = 168;
 
@@ -2464,7 +2468,7 @@ public class MainActivity extends AppCompatActivity {
 
             public void run() {
                 for (i = j; i < 150; i++) {
-
+                    Colour_box_no = i;
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
