@@ -53,9 +53,9 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);//hide the top dock
         requestWindowFeature(Window.FEATURE_NO_TITLE);//will hide the title
         getSupportActionBar().hide(); //hide the title bar
-        setContentView(R.layout.demo);
-       // final Button btn_multiplayer = findViewById(R.id.btn_multiplayer);
-      //  btn_multiplayer.setVisibility(View.INVISIBLE);
+        setContentView(R.layout.activity_main_chainpro);
+        // final Button btn_multiplayer = findViewById(R.id.btn_multiplayer);
+        //  btn_multiplayer.setVisibility(View.INVISIBLE);
         mAuth = FirebaseAuth.getInstance();
         fAuth = FirebaseAuth.getInstance();
         mAuth.signInAnonymously().addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -63,19 +63,17 @@ public class MainActivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 Log.d("TAG", "signInAnonymously:onComplete:" + task.isSuccessful());
                 if (task.isSuccessful()) {
-               /**
+                    /**
 
-                    //  btn_multiplayer.setVisibility(View.VISIBLE);
-                    btn_multiplayer.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            Toast.makeText(MainActivity.this, "Comming Soon", Toast.LENGTH_LONG).show();
+                     //  btn_multiplayer.setVisibility(View.VISIBLE);
+                     btn_multiplayer.setOnClickListener(new View.OnClickListener() {
+                    @Override public void onClick(View view) {
+                    Toast.makeText(MainActivity.this, "Comming Soon", Toast.LENGTH_LONG).show();
 
 
-                        }
+                    }
                     });
-
-**/
+                     **/
                 } else {
 
                     Toast.makeText(MainActivity.this, "Error Signing-in !!", Toast.LENGTH_LONG).show();
@@ -90,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         initialize();
         onclicklistners();
         //   turnchk();
-       //colourSwitch();
+        //colourSwitch();
 
 
     }
