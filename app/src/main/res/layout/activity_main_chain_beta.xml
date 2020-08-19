@@ -11,12 +11,12 @@
         android:id="@+id/tableLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/border"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/border_red"
         android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TableRow
             android:layout_width="match_parent"
@@ -28,7 +28,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -39,7 +39,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -50,7 +50,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -61,7 +61,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -72,7 +72,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -88,7 +88,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -99,7 +99,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -110,7 +110,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -121,7 +121,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -132,7 +132,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -148,7 +148,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -159,7 +159,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -170,7 +170,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -181,7 +181,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -192,7 +192,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -208,7 +208,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -219,7 +219,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -230,7 +230,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -241,7 +241,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -252,7 +252,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -268,7 +268,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -279,7 +279,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -290,7 +290,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -301,7 +301,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -312,7 +312,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -328,7 +328,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -339,7 +339,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -350,7 +350,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -361,7 +361,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -372,7 +372,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -388,7 +388,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -399,7 +399,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -410,7 +410,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -421,7 +421,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -432,7 +432,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -448,7 +448,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -459,7 +459,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -470,7 +470,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -481,7 +481,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -492,7 +492,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -508,7 +508,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -519,7 +519,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -530,7 +530,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -541,7 +541,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -552,7 +552,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -568,7 +568,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -579,7 +579,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -590,7 +590,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -601,7 +601,7 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
@@ -612,47 +612,19 @@
                 android:layout_height="55dp"
                 android:background="@drawable/toe"
                 android:fontFamily="@font/akronim"
-                android:src="@drawable/border"
+                android:src="@drawable/border_red"
                 android:text=" "
                 android:textSize="45sp"
                 android:visibility="visible" />
         </TableRow>
     </TableLayout>
 
-    <Button
-        android:id="@+id/btn_multiplayer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/gradient_btn"
-        android:fontFamily="@font/akronim"
-        android:text="Play With Friends"
-        android:textSize="18sp"
+    <ImageButton
+        android:id="@+id/button_fake"
+        android:layout_width="2dp"
+        android:layout_height="2dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:visibility="invisible" />
+        app:layout_constraintEnd_toEndOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="8dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
-            android:id="@+id/PlayerTurn"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/border"
-            android:gravity="center"
-            android:text="Turn"
-            android:textSize="24sp" />
-    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

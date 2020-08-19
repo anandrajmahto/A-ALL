@@ -14,7 +14,7 @@ import com.armscreation.a_games.R;
 
 
 public class home extends Fragment {
-CardView tictactoe,bingo,chain_reaction,chain_reaction_pro;
+CardView tictactoe,bingo,chain_reaction,chain_reaction_pro,chain_reaction_beta;
 
     public home() {
         // Required empty public co nstructor
@@ -35,7 +35,7 @@ CardView tictactoe,bingo,chain_reaction,chain_reaction_pro;
         bingo=view.findViewById(R.id.bingo);
         chain_reaction=view.findViewById(R.id.chain_reaction);
         chain_reaction_pro=view.findViewById(R.id.chain_reaction_pro);
-
+        chain_reaction_beta=view.findViewById(R.id.chain_reaction_beta);
         tictactoe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,7 +70,14 @@ CardView tictactoe,bingo,chain_reaction,chain_reaction_pro;
             }
         });
 
-
+        chain_reaction_beta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Toast.makeText(getContext(), "Comming soon ", Toast.LENGTH_SHORT).show();
+                Intent intent=new Intent(getContext(),com.armscreation.a_games.chain_beta.Splash.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

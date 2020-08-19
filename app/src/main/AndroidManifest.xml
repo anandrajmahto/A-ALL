@@ -3,6 +3,7 @@
     package="com.armscreation.a_games">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,31 +11,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name="com.armscreation.a_games.tictactoe.Splash"/>
-        <activity android:name="com.armscreation.a_games.tictactoe.Host"/>
-        <activity android:name="com.armscreation.a_games.tictactoe.MainActivity"/>
-        <activity android:name="com.armscreation.a_games.tictactoe.Join"/>
-
-        <activity android:name="com.armscreation.a_games.bingo.Splash"/>
-        <activity android:name="com.armscreation.a_games.bingo.Host"/>
-        <activity android:name="com.armscreation.a_games.bingo.MainActivity"/>
-        <activity android:name="com.armscreation.a_games.bingo.Join"/>
-
-
-        <activity android:name="com.armscreation.a_games.chain.Splash"/>
-        <activity android:name="com.armscreation.a_games.chain.Host"/>
-        <activity android:name="com.armscreation.a_games.chain.MainActivity"/>
-        <activity android:name="com.armscreation.a_games.chain.Join"/>
-
-
-        <activity android:name="com.armscreation.a_games.chainpro.Splash"/>
-        <activity android:name="com.armscreation.a_games.chainpro.Host"/>
-        <activity android:name="com.armscreation.a_games.chainpro.MainActivity"/>
-        <activity android:name="com.armscreation.a_games.chainpro.Join"/>
-
-
-        <activity android:name=".MainActivity"
+        <activity android:name=".chain_beta.Splash"></activity>
+        <activity android:name=".chain_beta.MainActivity" />
+        <activity android:name=".tictactoe.Splash" />
+        <activity android:name=".tictactoe.Host" />
+        <activity android:name=".tictactoe.MainActivity" />
+        <activity android:name=".tictactoe.Join" />
+        <activity android:name=".bingo.Splash" />
+        <activity android:name=".bingo.Host" />
+        <activity android:name=".bingo.MainActivity" />
+        <activity android:name=".bingo.Join" />
+        <activity android:name=".chain.Splash" />
+        <activity android:name=".chain.Host" />
+        <activity android:name=".chain.MainActivity" />
+        <activity android:name=".chain.Join" />
+        <activity android:name=".chainpro.Splash" />
+        <activity android:name=".chainpro.Host" />
+        <activity android:name=".chainpro.MainActivity" />
+        <activity android:name=".chainpro.Join" />
+        <activity
+            android:name=".MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,9 +38,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-3273060511389671~7647484833"/>
+            android:value="ca-app-pub-3273060511389671~7647484833" />
     </application>
 
 </manifest>
