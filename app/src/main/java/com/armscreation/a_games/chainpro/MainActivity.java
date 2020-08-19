@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     TextView PlayerTurn;
     TableLayout tableLayout;
 
+    private boolean pink, orange, purple, yellow, white;
 
     private FirebaseAuth mAuth;
 
@@ -88,23 +89,22 @@ public class MainActivity extends AppCompatActivity {
         initialize();
         onclicklistners();
         //   turnchk();
-        //colourSwitch();
+       //colourSwitch();
 
 
     }
 
     private void SingleChoice() {
-        final String[] listItems = {"2", "3"};
+        final String[] listItems = {"2", "3", "4", "5", "6", "7", "8"};
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+        AlertDialog.Builder builder = new AlertDialog.Builder(com.armscreation.a_games.chainpro.MainActivity.this);
         builder.setTitle("Choose Player");
 
         builder.setItems(listItems, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Users = Integer.parseInt(listItems[which]);
-                turnchk();
-                ////colourSwitch(0);
+                // turnchk();
                 // Toast.makeText(MainActivity.this, " Value: " + listItems[which], Toast.LENGTH_LONG).show();
 
             }
@@ -1213,109 +1213,187 @@ public class MainActivity extends AppCompatActivity {
     }
 
     void btn(final int j) {
-
         //turn 1=red
         //turn 2=green
-
-        if (Users == 2) {
-            if (turn == 1 && array[j].getTag().equals(" ")) {
-                red = true;
-                array[j].setBackgroundResource(R.drawable.red);
-                //  array[j].setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary), android.graphics.PorterDuff.Mode.MULTIPLY);
-                //  array[j].setColorFilter(Color.rgb(10,12,12));
-                //  array[j].setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary));
-                array[j].setTag("red");
-                turn = 2;
-            } else if (turn == 2 && array[j].getTag().equals(" ")) {
-                green = true;
-                array[j].setBackgroundResource(R.drawable.green);
-                array[j].setTag("green");
-                turn = 1;
-            } else if (turn == 1 && array[j].getTag().equals("red")) {
-                array[j].setBackgroundResource(R.drawable.red2);
-                array[j].setTag("red2");
-                turn = 2;
-            } else if (turn == 2 && array[j].getTag().equals("green")) {
-                array[j].setBackgroundResource(R.drawable.green2);
-                array[j].setTag("green2");
-                turn = 1;
-            } else if (turn == 1 && array[j].getTag().equals("red2")) {
-                array[j].setBackgroundResource(R.drawable.red3);
-                array[j].setTag("red3");
-                turn = 2;
-            } else if (turn == 2 && array[j].getTag().equals("green2")) {
-                array[j].setBackgroundResource(R.drawable.green3);
-                array[j].setTag("green3");
-                turn = 1;
-            } else if (turn == 1 && array[j].getTag().equals("red3")) {
-                array[j].setBackgroundResource(R.drawable.red4);
-                array[j].setTag("red4");
-                turn = 2;
-            } else if (turn == 2 && array[j].getTag().equals("green3")) {
-                array[j].setBackgroundResource(R.drawable.green4);
-                array[j].setTag("green4");
-                turn = 1;
-            }
-        } else if (Users == 3) {
-            if (turn == 1 && array[j].getTag().equals(" ")) {
-                red = true;
-                array[j].setBackgroundResource(R.drawable.red);
-                //  array[j].setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary), android.graphics.PorterDuff.Mode.MULTIPLY);
-                //  array[j].setColorFilter(Color.rgb(10,12,12));
-                //  array[j].setColorFilter(ContextCompat.getColor(getApplicationContext(), R.color.colorPrimary));
-                array[j].setTag("red");
-                turn = 2;
-            } else if (turn == 2 && array[j].getTag().equals(" ")) {
-                green = true;
-                array[j].setBackgroundResource(R.drawable.green);
-                array[j].setTag("green");
-                turn = 3;
-            } else if (turn == 3 && array[j].getTag().equals(" ")) {
-                blue = true;
-                array[j].setBackgroundResource(R.drawable.blue);
-                array[j].setTag("blue");
-                turn = 1;
-            } else if (turn == 1 && array[j].getTag().equals("red")) {
-                array[j].setBackgroundResource(R.drawable.red2);
-                array[j].setTag("red2");
-                turn = 2;
-            } else if (turn == 2 && array[j].getTag().equals("green")) {
-                array[j].setBackgroundResource(R.drawable.green2);
-                array[j].setTag("green2");
-                turn = 3;
-            } else if (turn == 3 && array[j].getTag().equals("blue")) {
-                array[j].setBackgroundResource(R.drawable.blue2);
-                array[j].setTag("blue2");
-                turn = 1;
-            } else if (turn == 1 && array[j].getTag().equals("red2")) {
-                array[j].setBackgroundResource(R.drawable.red3);
-                array[j].setTag("red3");
-                turn = 2;
-            } else if (turn == 2 && array[j].getTag().equals("green2")) {
-                array[j].setBackgroundResource(R.drawable.green3);
-                array[j].setTag("green3");
-                turn = 3;
-            } else if (turn == 3 && array[j].getTag().equals("blue2")) {
-                array[j].setBackgroundResource(R.drawable.blue3);
-                array[j].setTag("blue3");
-                turn = 1;
-            } else if (turn == 1 && array[j].getTag().equals("red3")) {
-                array[j].setBackgroundResource(R.drawable.red4);
-                array[j].setTag("red4");
-                turn = 2;
-            } else if (turn == 2 && array[j].getTag().equals("green3")) {
-                array[j].setBackgroundResource(R.drawable.green4);
-                array[j].setTag("green4");
-                turn = 3;
-            } else if (turn == 3 && array[j].getTag().equals("blue3")) {
-                array[j].setBackgroundResource(R.drawable.blue4);
-                array[j].setTag("blue4");
-                turn = 1;
-            }
+        //turn 3=blue
+        //turn 4=pink
+        //turn 5=orange
+        //turn 6=purple
+        //turn 7=yellow
+        //turn 8=white
+        if (turn == 1 && array[j].getTag().equals(" ")) {
+            red = true;
+            array[j].setBackgroundResource(R.drawable.red);
+            array[j].setTag("red");
+            array[j].setTag(R.id.TAG_ONLINE_ID, "1");
+            turnchk();
+        } else if (turn == 2 && array[j].getTag().equals(" ")) {
+            green = true;
+            array[j].setBackgroundResource(R.drawable.green);
+            array[j].setTag("green");
+            array[j].setTag(R.id.TAG_ONLINE_ID, "1");
+            turnchk();
+        } else if (turn == 3 && array[j].getTag().equals(" ")) {
+            blue = true;
+            array[j].setBackgroundResource(R.drawable.blue);
+            array[j].setTag("blue");
+            array[j].setTag(R.id.TAG_ONLINE_ID, "1");
+            turnchk();
+        } else if (turn == 4 && array[j].getTag().equals(" ")) {
+            pink = true;
+            array[j].setBackgroundResource(R.drawable.pink);
+            array[j].setTag("pink");
+            array[j].setTag(R.id.TAG_ONLINE_ID, "1");
+            turnchk();
+        } else if (turn == 5 && array[j].getTag().equals(" ")) {
+            orange = true;
+            array[j].setBackgroundResource(R.drawable.orange);
+            array[j].setTag("orange");
+            array[j].setTag(R.id.TAG_ONLINE_ID, "1");
+            turnchk();
+        } else if (turn == 6 && array[j].getTag().equals(" ")) {
+            purple = true;
+            array[j].setBackgroundResource(R.drawable.purple);
+            array[j].setTag("purple");
+            array[j].setTag(R.id.TAG_ONLINE_ID, "1");
+            turnchk();
+        } else if (turn == 7 && array[j].getTag().equals(" ")) {
+            yellow = true;
+            array[j].setBackgroundResource(R.drawable.yellow);
+            array[j].setTag("yellow");
+            array[j].setTag(R.id.TAG_ONLINE_ID, "1");
+            turnchk();
+        } else if (turn == 8 && array[j].getTag().equals(" ")) {
+            white = true;
+            array[j].setBackgroundResource(R.drawable.white);
+            array[j].setTag("white");
+            array[j].setTag(R.id.TAG_ONLINE_ID, "1");
+            turnchk();
+        } else if (turn == 1 && array[j].getTag().equals("red")) {
+            array[j].setBackgroundResource(R.drawable.red2);
+            array[j].setTag("red2");
+            array[j].setTag(R.id.TAG_ONLINE_ID, "2");
+            turnchk();
+        } else if (turn == 2 && array[j].getTag().equals("green")) {
+            array[j].setBackgroundResource(R.drawable.green2);
+            array[j].setTag("green2");
+            array[j].setTag(R.id.TAG_ONLINE_ID, "2");
+            turnchk();
+        } else if (turn == 3 && array[j].getTag().equals("blue")) {
+            array[j].setBackgroundResource(R.drawable.blue2);
+            array[j].setTag("blue2");
+            array[j].setTag(R.id.TAG_ONLINE_ID, "2");
+            turnchk();
+        } else if (turn == 4 && array[j].getTag().equals("pink")) {
+            array[j].setBackgroundResource(R.drawable.pink2);
+            array[j].setTag("pink2");
+            array[j].setTag(R.id.TAG_ONLINE_ID, "2");
+            turnchk();
+        } else if (turn == 5 && array[j].getTag().equals("orange")) {
+            array[j].setBackgroundResource(R.drawable.orange2);
+            array[j].setTag("orange2");
+            array[j].setTag(R.id.TAG_ONLINE_ID, "2");
+            turnchk();
+        } else if (turn == 6 && array[j].getTag().equals("purple")) {
+            array[j].setBackgroundResource(R.drawable.purple2);
+            array[j].setTag("purple2");
+            array[j].setTag(R.id.TAG_ONLINE_ID, "2");
+            turnchk();
+        } else if (turn == 7 && array[j].getTag().equals("yellow")) {
+            array[j].setBackgroundResource(R.drawable.yellow2);
+            array[j].setTag("yellow2");
+            array[j].setTag(R.id.TAG_ONLINE_ID, "2");
+            turnchk();
+        } else if (turn == 8 && array[j].getTag().equals("white")) {
+            array[j].setBackgroundResource(R.drawable.white2);
+            array[j].setTag("white2");
+            array[j].setTag(R.id.TAG_ONLINE_ID, "2");
+            turnchk();
+        } else if (turn == 1 && array[j].getTag().equals("red2")) {
+            array[j].setBackgroundResource(R.drawable.red3);
+            array[j].setTag("red3");
+            array[j].setTag(R.id.TAG_ONLINE_ID, "3");
+            turnchk();
+        } else if (turn == 2 && array[j].getTag().equals("green2")) {
+            array[j].setBackgroundResource(R.drawable.green3);
+            array[j].setTag("green3");
+            array[j].setTag(R.id.TAG_ONLINE_ID, "3");
+            turnchk();
+        } else if (turn == 3 && array[j].getTag().equals("blue2")) {
+            array[j].setBackgroundResource(R.drawable.blue3);
+            array[j].setTag("blue3");
+            array[j].setTag(R.id.TAG_ONLINE_ID, "3");
+            turnchk();
+        } else if (turn == 4 && array[j].getTag().equals("pink2")) {
+            array[j].setBackgroundResource(R.drawable.pink3);
+            array[j].setTag("pink3");
+            array[j].setTag(R.id.TAG_ONLINE_ID, "3");
+            turnchk();
+        } else if (turn == 5 && array[j].getTag().equals("orange2")) {
+            array[j].setBackgroundResource(R.drawable.orange3);
+            array[j].setTag("orange3");
+            array[j].setTag(R.id.TAG_ONLINE_ID, "3");
+            turnchk();
+        } else if (turn == 6 && array[j].getTag().equals("purple2")) {
+            array[j].setBackgroundResource(R.drawable.purple3);
+            array[j].setTag("purple3");
+            array[j].setTag(R.id.TAG_ONLINE_ID, "3");
+            turnchk();
+        } else if (turn == 7 && array[j].getTag().equals("yellow2")) {
+            array[j].setBackgroundResource(R.drawable.yellow3);
+            array[j].setTag("yellow3");
+            array[j].setTag(R.id.TAG_ONLINE_ID, "3");
+            turnchk();
+        } else if (turn == 8 && array[j].getTag().equals("white2")) {
+            array[j].setBackgroundResource(R.drawable.white3);
+            array[j].setTag("white3");
+            array[j].setTag(R.id.TAG_ONLINE_ID, "3");
+            turnchk();
+        } else if (turn == 1 && array[j].getTag().equals("red3")) {
+            array[j].setBackgroundResource(R.drawable.red4);
+            array[j].setTag("red4");
+            array[j].setTag(R.id.TAG_ONLINE_ID, "4");
+            turnchk();
+        } else if (turn == 2 && array[j].getTag().equals("green3")) {
+            array[j].setBackgroundResource(R.drawable.green4);
+            array[j].setTag("green4");
+            array[j].setTag(R.id.TAG_ONLINE_ID, "4");
+            turnchk();
+        } else if (turn == 3 && array[j].getTag().equals("blue3")) {
+            array[j].setBackgroundResource(R.drawable.blue4);
+            array[j].setTag("blue4");
+            array[j].setTag(R.id.TAG_ONLINE_ID, "4");
+            turnchk();
+        } else if (turn == 4 && array[j].getTag().equals("pink3")) {
+            array[j].setBackgroundResource(R.drawable.pink4);
+            array[j].setTag("pink4");
+            array[j].setTag(R.id.TAG_ONLINE_ID, "4");
+            turnchk();
+        } else if (turn == 5 && array[j].getTag().equals("orange3")) {
+            array[j].setBackgroundResource(R.drawable.orange4);
+            array[j].setTag("orange4");
+            array[j].setTag(R.id.TAG_ONLINE_ID, "4");
+            turnchk();
+        } else if (turn == 6 && array[j].getTag().equals("purple3")) {
+            array[j].setBackgroundResource(R.drawable.purple4);
+            array[j].setTag("purple4");
+            array[j].setTag(R.id.TAG_ONLINE_ID, "4");
+            turnchk();
+        } else if (turn == 7 && array[j].getTag().equals("yellow3")) {
+            array[j].setBackgroundResource(R.drawable.yellow4);
+            array[j].setTag("yellow4");
+            array[j].setTag(R.id.TAG_ONLINE_ID, "4");
+            turnchk();
+        } else if (turn == 8 && array[j].getTag().equals("white3")) {
+            array[j].setBackgroundResource(R.drawable.white4);
+            array[j].setTag("white4");
+            array[j].setTag(R.id.TAG_ONLINE_ID, "4");
+            turnchk();
         }
         check();
-        turnchk();
-        resultchk();
+
+        //  check();
+        //  resultchk();
         // resultchkOut();
     }
 
@@ -1429,7 +1507,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void check() {
-        resultchk();
+       // resultchk();
         // resultchkOut();
 
 
@@ -1557,593 +1635,1841 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     }
-
-    private void check4(final int i, final int i1, final int i2, final int i3, final int i4) {
-        new Handler().postDelayed(new Runnable() {
-            public void run() {
-                //red check button i
-                if (array[i].getTag().equals("red4")) {
+    private void check4(int i, int i1, int i2, int i3, int i4) {
 
 
-                    //button i1 check
-                    if (array[i1].getTag().equals("red") || array[i1].getTag().equals("green")) {
-                        array[i1].setBackgroundResource(R.drawable.red2);
-                        array[i1].setTag("red2");
+        //red check button i
+        if (array[i].getTag().equals("red4")) {
+            //button i1 check
+            if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i1].setBackgroundResource(R.drawable.red2);
+                array[i1].setTag("red2");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "2");
 
-                    } else if (array[i1].getTag().equals("red2") || array[i1].getTag().equals("green2")) {
-                        array[i1].setBackgroundResource(R.drawable.red3);
-                        array[i1].setTag("red3");
-                    } else if (array[i1].getTag().equals("red3") || array[i1].getTag().equals("green3")) {
-                        array[i1].setBackgroundResource(R.drawable.red4);
-                        array[i1].setTag("red4");
-                    } else if (array[i1].getTag().equals("red4") || array[i1].getTag().equals("green4")) {
-                        array[i1].setBackgroundResource(R.drawable.toe);
-                        array[i1].setTag(" ");
-                    } else {
-                        array[i1].setBackgroundResource(R.drawable.red);
-                        array[i1].setTag("red");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i1].setBackgroundResource(R.drawable.red3);
+                array[i1].setTag("red3");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i1].setBackgroundResource(R.drawable.red4);
+                array[i1].setTag("red4");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("4")) {
+                array[i1].setBackgroundResource(R.drawable.toe);
+                array[i1].setTag(" ");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, " ");
+            } else if (array[i1].getTag().equals(" ")) {
+                array[i1].setBackgroundResource(R.drawable.red);
+                array[i1].setTag("red");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "1");
 
-                    }
-
-                    //button i2 check
-                    if (array[i2].getTag().equals("red") || array[i2].getTag().equals("green")) {
-                        array[i2].setBackgroundResource(R.drawable.red2);
-                        array[i2].setTag("red2");
-                    } else if (array[i2].getTag().equals("red2") || array[i2].getTag().equals("green2")) {
-                        array[i2].setBackgroundResource(R.drawable.red3);
-                        array[i2].setTag("red3");
-                    } else if (array[i2].getTag().equals("red3") || array[i2].getTag().equals("green3")) {
-                        array[i2].setBackgroundResource(R.drawable.red4);
-                        array[i2].setTag("red4");
-                    } else if (array[i2].getTag().equals("red4") || array[i2].getTag().equals("green4")) {
-                        array[i2].setBackgroundResource(R.drawable.toe);
-                        array[i2].setTag(" ");
-                    } else {
-                        array[i2].setBackgroundResource(R.drawable.red);
-                        array[i2].setTag("red");
-
-                    }
-                    //button i3 check
-                    if (array[i3].getTag().equals("red") || array[i3].getTag().equals("green")) {
-                        array[i3].setBackgroundResource(R.drawable.red2);
-                        array[i3].setTag("red2");
-                    } else if (array[i3].getTag().equals("red2") || array[i3].getTag().equals("green2")) {
-                        array[i3].setBackgroundResource(R.drawable.red3);
-                        array[i3].setTag("red3");
-                    } else if (array[i3].getTag().equals("red3") || array[i3].getTag().equals("red3")) {
-                        array[i3].setBackgroundResource(R.drawable.red4);
-                        array[i3].setTag("red4");
-                    } else if (array[i3].getTag().equals("red4") || array[i3].getTag().equals("green4")) {
-                        array[i3].setBackgroundResource(R.drawable.toe);
-                        array[i3].setTag(" ");
-                    } else {
-                        array[i3].setBackgroundResource(R.drawable.red);
-                        array[i3].setTag("red");
-
-                    }
-                    //button i4 check
-                    if (array[i4].getTag().equals("red") || array[i4].getTag().equals("green")) {
-                        array[i4].setBackgroundResource(R.drawable.red2);
-                        array[i4].setTag("red2");
-                    } else if (array[i4].getTag().equals("red2") || array[i4].getTag().equals("green2")) {
-                        array[i4].setBackgroundResource(R.drawable.red3);
-                        array[i4].setTag("red3");
-                    } else if (array[i4].getTag().equals("red3") || array[i4].getTag().equals("red3")) {
-                        array[i4].setBackgroundResource(R.drawable.red4);
-                        array[i4].setTag("red4");
-                    } else if (array[i4].getTag().equals("red4") || array[i4].getTag().equals("green4")) {
-                        array[i4].setBackgroundResource(R.drawable.toe);
-                        array[i4].setTag(" ");
-                    } else {
-                        array[i4].setBackgroundResource(R.drawable.red);
-                        array[i4].setTag("red");
-
-                    }
-
-                    array[i].setBackgroundResource(R.drawable.toe);
-                    array[i].setTag(" ");
-                    check();
-
-
-                }
-                //green check button i
-                else if (array[i].getTag().equals("green4")) {
-
-                    //button i1 check
-
-                    if (array[i1].getTag().equals("green") || array[i1].getTag().equals("red")) {
-                        array[i1].setBackgroundResource(R.drawable.green2);
-                        array[i1].setTag("green2");
-                    } else if (array[i1].getTag().equals("green2") || array[i1].getTag().equals("red2")) {
-                        array[i1].setBackgroundResource(R.drawable.green3);
-                        array[i1].setTag("green3");
-                    } else if (array[i1].getTag().equals("green3") || array[i1].getTag().equals("red3")) {
-                        array[i1].setBackgroundResource(R.drawable.green4);
-                        array[i1].setTag("green4");
-                    } else if (array[i1].getTag().equals("green4") || array[i1].getTag().equals("red4")) {
-                        array[i1].setBackgroundResource(R.drawable.toe);
-                        array[i1].setTag(" ");
-                    } else {
-                        array[i1].setBackgroundResource(R.drawable.green);
-                        array[i1].setTag("green");
-
-                    }
-                    //button i2 check
-                    if (array[i2].getTag().equals("green") || array[i2].getTag().equals("red")) {
-                        array[i2].setBackgroundResource(R.drawable.green2);
-                        array[i2].setTag("green2");
-                    } else if (array[i2].getTag().equals("green2") || array[i2].getTag().equals("red2")) {
-                        array[i2].setBackgroundResource(R.drawable.green3);
-                        array[i2].setTag("green3");
-                    } else if (array[i2].getTag().equals("green3") || array[i2].getTag().equals("red3")) {
-                        array[i2].setBackgroundResource(R.drawable.green4);
-                        array[i2].setTag("green4");
-                    } else if (array[i2].getTag().equals("green4") || array[i2].getTag().equals("red4")) {
-                        array[i2].setBackgroundResource(R.drawable.toe);
-                        array[i2].setTag(" ");
-                    } else {
-                        array[i2].setBackgroundResource(R.drawable.green);
-                        array[i2].setTag("green");
-
-                    }
-                    //button i3 check
-                    if (array[i3].getTag().equals("green") || array[i3].getTag().equals("red")) {
-                        array[i3].setBackgroundResource(R.drawable.green2);
-                        array[i3].setTag("green2");
-                    } else if (array[i3].getTag().equals("green2") || array[i3].getTag().equals("red2")) {
-                        array[i3].setBackgroundResource(R.drawable.green3);
-                        array[i3].setTag("green3");
-                    } else if (array[i3].getTag().equals("green3") || array[i3].getTag().equals("red3")) {
-                        array[i3].setBackgroundResource(R.drawable.green4);
-                        array[i3].setTag("green4");
-                    } else if (array[i3].getTag().equals("green4") || array[i3].getTag().equals("red4")) {
-                        array[i3].setBackgroundResource(R.drawable.toe);
-                        array[i3].setTag(" ");
-                    } else {
-                        array[i3].setBackgroundResource(R.drawable.green);
-                        array[i3].setTag("green");
-
-                    }
-                    //button i4 check
-                    if (array[i4].getTag().equals("green") || array[i4].getTag().equals("red")) {
-                        array[i4].setBackgroundResource(R.drawable.green2);
-                        array[i4].setTag("green2");
-                    } else if (array[i4].getTag().equals("green2") || array[i4].getTag().equals("red2")) {
-                        array[i4].setBackgroundResource(R.drawable.green3);
-                        array[i4].setTag("green3");
-                    } else if (array[i4].getTag().equals("green3") || array[i4].getTag().equals("red3")) {
-                        array[i4].setBackgroundResource(R.drawable.green4);
-                        array[i4].setTag("green4");
-                    } else if (array[i4].getTag().equals("green4") || array[i4].getTag().equals("red4")) {
-                        array[i4].setBackgroundResource(R.drawable.toe);
-                        array[i4].setTag(" ");
-                    } else {
-                        array[i4].setBackgroundResource(R.drawable.green);
-                        array[i4].setTag("green");
-
-                    }
-                    array[i].setBackgroundResource(R.drawable.toe);
-                    array[i].setTag(" ");
-                    check();
-
-                }
-
-                //blue check button i
-                else if (array[i].getTag().equals("blue4")) {
-
-                    //button i1 check
-                    if (array[i1].getTag().equals("blue") || array[i1].getTag().equals("red")) {
-                        array[i1].setBackgroundResource(R.drawable.blue2);
-                        array[i1].setTag("blue2");
-                    } else if (array[i1].getTag().equals("blue2") || array[i1].getTag().equals("red2")) {
-                        array[i1].setBackgroundResource(R.drawable.blue3);
-                        array[i1].setTag("blue3");
-                    } else if (array[i1].getTag().equals("blue3") || array[i1].getTag().equals("red3")) {
-                        array[i1].setBackgroundResource(R.drawable.blue4);
-                        array[i1].setTag("blue4");
-                    } else if (array[i1].getTag().equals("blue4") || array[i1].getTag().equals("red4")) {
-                        array[i1].setBackgroundResource(R.drawable.toe);
-                        array[i1].setTag(" ");
-                    } else {
-                        array[i1].setBackgroundResource(R.drawable.blue);
-                        array[i1].setTag("blue");
-
-                    }
-                    //button i2 check
-                    if (array[i2].getTag().equals("blue") || array[i2].getTag().equals("red")) {
-                        array[i2].setBackgroundResource(R.drawable.blue2);
-                        array[i2].setTag("blue2");
-                    } else if (array[i2].getTag().equals("blue2") || array[i2].getTag().equals("red2")) {
-                        array[i2].setBackgroundResource(R.drawable.blue3);
-                        array[i2].setTag("blue3");
-                    } else if (array[i2].getTag().equals("blue3") || array[i2].getTag().equals("red3")) {
-                        array[i2].setBackgroundResource(R.drawable.blue4);
-                        array[i2].setTag("blue4");
-                    } else if (array[i2].getTag().equals("blue4") || array[i2].getTag().equals("red4")) {
-                        array[i2].setBackgroundResource(R.drawable.toe);
-                        array[i2].setTag(" ");
-                    } else {
-                        array[i2].setBackgroundResource(R.drawable.blue);
-                        array[i2].setTag("blue");
-
-                    }
-                    //button i3 check
-                    if (array[i3].getTag().equals("blue") || array[i3].getTag().equals("red")) {
-                        array[i3].setBackgroundResource(R.drawable.blue2);
-                        array[i3].setTag("blue2");
-                    } else if (array[i3].getTag().equals("blue2") || array[i3].getTag().equals("red2")) {
-                        array[i3].setBackgroundResource(R.drawable.blue3);
-                        array[i3].setTag("blue3");
-                    } else if (array[i3].getTag().equals("blue3") || array[i3].getTag().equals("red3")) {
-                        array[i3].setBackgroundResource(R.drawable.blue4);
-                        array[i3].setTag("blue4");
-                    } else if (array[i3].getTag().equals("blue4") || array[i3].getTag().equals("red4")) {
-                        array[i3].setBackgroundResource(R.drawable.toe);
-                        array[i3].setTag(" ");
-                    } else {
-                        array[i3].setBackgroundResource(R.drawable.blue);
-                        array[i3].setTag("blue");
-
-                    }
-                    //button i4 check
-                    if (array[i4].getTag().equals("blue") || array[i4].getTag().equals("red")) {
-                        array[i4].setBackgroundResource(R.drawable.blue2);
-                        array[i4].setTag("blue2");
-                    } else if (array[i4].getTag().equals("blue2") || array[i4].getTag().equals("red2")) {
-                        array[i4].setBackgroundResource(R.drawable.blue3);
-                        array[i4].setTag("blue3");
-                    } else if (array[i4].getTag().equals("blue3") || array[i4].getTag().equals("red3")) {
-                        array[i4].setBackgroundResource(R.drawable.blue4);
-                        array[i4].setTag("blue4");
-                    } else if (array[i4].getTag().equals("blue4") || array[i4].getTag().equals("red4")) {
-                        array[i4].setBackgroundResource(R.drawable.toe);
-                        array[i4].setTag(" ");
-                    } else {
-                        array[i4].setBackgroundResource(R.drawable.blue);
-                        array[i4].setTag("blue");
-
-                    }
-                    array[i].setBackgroundResource(R.drawable.toe);
-                    array[i].setTag(" ");
-                    check();
-
-                }
             }
-        }, 1000);
+            //button i2 check
+            if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i2].setBackgroundResource(R.drawable.red2);
+                array[i2].setTag("red2");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i2].setBackgroundResource(R.drawable.red3);
+                array[i2].setTag("red3");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i2].setBackgroundResource(R.drawable.red4);
+                array[i2].setTag("red4");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("4")) {
+                array[i2].setBackgroundResource(R.drawable.toe);
+                array[i2].setTag(" ");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, " ");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i2].setBackgroundResource(R.drawable.red);
+                array[i2].setTag("red");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "1");
 
+            }
+            //button i3 check
+            if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i3].setBackgroundResource(R.drawable.red2);
+                array[i3].setTag("red2");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i3].setBackgroundResource(R.drawable.red3);
+                array[i3].setTag("red3");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i3].setBackgroundResource(R.drawable.red4);
+                array[i3].setTag("red4");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("4")) {
+                array[i3].setBackgroundResource(R.drawable.toe);
+                array[i3].setTag(" ");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, " ");
+            } else if (array[i3].getTag().equals(" ")) {
+                array[i3].setBackgroundResource(R.drawable.red);
+                array[i3].setTag("red");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            //button i4 check
+            if (array[i4].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i4].setBackgroundResource(R.drawable.red2);
+                array[i4].setTag("red2");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i4].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i4].setBackgroundResource(R.drawable.red3);
+                array[i4].setTag("red3");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i4].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i4].setBackgroundResource(R.drawable.red4);
+                array[i4].setTag("red4");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i4].getTag(R.id.TAG_ONLINE_ID).equals("4")) {
+                array[i4].setBackgroundResource(R.drawable.toe);
+                array[i4].setTag(" ");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, " ");
+            } else if (array[i4].getTag().equals(" ")) {
+                array[i4].setBackgroundResource(R.drawable.red);
+                array[i4].setTag("red");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+
+            array[i].setBackgroundResource(R.drawable.toe);
+            array[i].setTag(" ");
+            array[i].setTag(R.id.TAG_ONLINE_ID, " ");
+        }
+        //green check button i
+        if (array[i].getTag().equals("green4")) {
+            //button i1 check
+            if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i1].setBackgroundResource(R.drawable.green2);
+                array[i1].setTag("green2");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "2");
+
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i1].setBackgroundResource(R.drawable.green3);
+                array[i1].setTag("green3");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i1].setBackgroundResource(R.drawable.green4);
+                array[i1].setTag("green4");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("4")) {
+                array[i1].setBackgroundResource(R.drawable.toe);
+                array[i1].setTag(" ");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, " ");
+            } else if (array[i1].getTag().equals(" ")) {
+                array[i1].setBackgroundResource(R.drawable.green);
+                array[i1].setTag("green");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            //button i2 check
+            if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i2].setBackgroundResource(R.drawable.green2);
+                array[i2].setTag("green2");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i2].setBackgroundResource(R.drawable.green3);
+                array[i2].setTag("green3");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i2].setBackgroundResource(R.drawable.green4);
+                array[i2].setTag("green4");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("4")) {
+                array[i2].setBackgroundResource(R.drawable.toe);
+                array[i2].setTag(" ");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, " ");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i2].setBackgroundResource(R.drawable.green);
+                array[i2].setTag("green");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            //button i3 check
+            if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i3].setBackgroundResource(R.drawable.green2);
+                array[i3].setTag("green2");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i3].setBackgroundResource(R.drawable.green3);
+                array[i3].setTag("green3");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i3].setBackgroundResource(R.drawable.green4);
+                array[i3].setTag("green4");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("4")) {
+                array[i3].setBackgroundResource(R.drawable.toe);
+                array[i3].setTag(" ");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, " ");
+            } else if (array[i3].getTag().equals(" ")) {
+                array[i3].setBackgroundResource(R.drawable.green);
+                array[i3].setTag("green");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            //button i4 check
+            if (array[i4].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i4].setBackgroundResource(R.drawable.green2);
+                array[i4].setTag("green2");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i4].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i4].setBackgroundResource(R.drawable.green3);
+                array[i4].setTag("green3");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i4].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i4].setBackgroundResource(R.drawable.green4);
+                array[i4].setTag("green4");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i4].getTag(R.id.TAG_ONLINE_ID).equals("4")) {
+                array[i4].setBackgroundResource(R.drawable.toe);
+                array[i4].setTag(" ");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, " ");
+            } else if (array[i4].getTag().equals(" ")) {
+                array[i4].setBackgroundResource(R.drawable.green);
+                array[i4].setTag("green");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+
+            array[i].setBackgroundResource(R.drawable.toe);
+            array[i].setTag(" ");
+            array[i].setTag(R.id.TAG_ONLINE_ID, " ");
+        }    //blue check button i
+        if (array[i].getTag().equals("blue4")) {
+            //button i1 check
+            if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i1].setBackgroundResource(R.drawable.blue2);
+                array[i1].setTag("blue2");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "2");
+
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i1].setBackgroundResource(R.drawable.blue3);
+                array[i1].setTag("blue3");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i1].setBackgroundResource(R.drawable.blue4);
+                array[i1].setTag("blue4");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("4")) {
+                array[i1].setBackgroundResource(R.drawable.toe);
+                array[i1].setTag(" ");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, " ");
+            } else if (array[i1].getTag().equals(" ")) {
+                array[i1].setBackgroundResource(R.drawable.blue);
+                array[i1].setTag("blue");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            //button i2 check
+            if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i2].setBackgroundResource(R.drawable.blue2);
+                array[i2].setTag("blue2");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i2].setBackgroundResource(R.drawable.blue3);
+                array[i2].setTag("blue3");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i2].setBackgroundResource(R.drawable.blue4);
+                array[i2].setTag("blue4");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("4")) {
+                array[i2].setBackgroundResource(R.drawable.toe);
+                array[i2].setTag(" ");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, " ");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i2].setBackgroundResource(R.drawable.blue);
+                array[i2].setTag("blue");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            //button i3 check
+            if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i3].setBackgroundResource(R.drawable.blue2);
+                array[i3].setTag("blue2");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i3].setBackgroundResource(R.drawable.blue3);
+                array[i3].setTag("blue3");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i3].setBackgroundResource(R.drawable.blue4);
+                array[i3].setTag("blue4");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("4")) {
+                array[i3].setBackgroundResource(R.drawable.toe);
+                array[i3].setTag(" ");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, " ");
+            } else if (array[i3].getTag().equals(" ")) {
+                array[i3].setBackgroundResource(R.drawable.blue);
+                array[i3].setTag("blue");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            //button i4 check
+            if (array[i4].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i4].setBackgroundResource(R.drawable.blue2);
+                array[i4].setTag("blue2");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i4].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i4].setBackgroundResource(R.drawable.blue3);
+                array[i4].setTag("blue3");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i4].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i4].setBackgroundResource(R.drawable.blue4);
+                array[i4].setTag("blue4");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i4].getTag(R.id.TAG_ONLINE_ID).equals("4")) {
+                array[i4].setBackgroundResource(R.drawable.toe);
+                array[i4].setTag(" ");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, " ");
+            } else if (array[i4].getTag().equals(" ")) {
+                array[i4].setBackgroundResource(R.drawable.blue);
+                array[i4].setTag("blue");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+
+            array[i].setBackgroundResource(R.drawable.toe);
+            array[i].setTag(" ");
+            array[i].setTag(R.id.TAG_ONLINE_ID, " ");
+        }    //pink check button i
+        if (array[i].getTag().equals("pink4")) {
+            //button i1 check
+            if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i1].setBackgroundResource(R.drawable.pink2);
+                array[i1].setTag("pink2");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "2");
+
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i1].setBackgroundResource(R.drawable.pink3);
+                array[i1].setTag("pink3");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i1].setBackgroundResource(R.drawable.pink4);
+                array[i1].setTag("pink4");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("4")) {
+                array[i1].setBackgroundResource(R.drawable.toe);
+                array[i1].setTag(" ");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, " ");
+            } else if (array[i1].getTag().equals(" ")) {
+                array[i1].setBackgroundResource(R.drawable.pink);
+                array[i1].setTag("pink");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            //button i2 check
+            if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i2].setBackgroundResource(R.drawable.pink2);
+                array[i2].setTag("pink2");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i2].setBackgroundResource(R.drawable.pink3);
+                array[i2].setTag("pink3");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i2].setBackgroundResource(R.drawable.pink4);
+                array[i2].setTag("pink4");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("4")) {
+                array[i2].setBackgroundResource(R.drawable.toe);
+                array[i2].setTag(" ");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, " ");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i2].setBackgroundResource(R.drawable.pink);
+                array[i2].setTag("pink");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            //button i3 check
+            if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i3].setBackgroundResource(R.drawable.pink2);
+                array[i3].setTag("pink2");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i3].setBackgroundResource(R.drawable.pink3);
+                array[i3].setTag("pink3");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i3].setBackgroundResource(R.drawable.pink4);
+                array[i3].setTag("pink4");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("4")) {
+                array[i3].setBackgroundResource(R.drawable.toe);
+                array[i3].setTag(" ");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, " ");
+            } else if (array[i3].getTag().equals(" ")) {
+                array[i3].setBackgroundResource(R.drawable.pink);
+                array[i3].setTag("pink");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            //button i4 check
+            if (array[i4].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i4].setBackgroundResource(R.drawable.pink2);
+                array[i4].setTag("pink2");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i4].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i4].setBackgroundResource(R.drawable.pink3);
+                array[i4].setTag("pink3");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i4].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i4].setBackgroundResource(R.drawable.pink4);
+                array[i4].setTag("pink4");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i4].getTag(R.id.TAG_ONLINE_ID).equals("4")) {
+                array[i4].setBackgroundResource(R.drawable.toe);
+                array[i4].setTag(" ");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, " ");
+            } else if (array[i4].getTag().equals(" ")) {
+                array[i4].setBackgroundResource(R.drawable.pink);
+                array[i4].setTag("pink");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+
+            array[i].setBackgroundResource(R.drawable.toe);
+            array[i].setTag(" ");
+            array[i].setTag(R.id.TAG_ONLINE_ID, " ");
+        }    //orange check button i
+        if (array[i].getTag().equals("orange4")) {
+            //button i1 check
+            if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i1].setBackgroundResource(R.drawable.orange2);
+                array[i1].setTag("orange2");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "2");
+
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i1].setBackgroundResource(R.drawable.orange3);
+                array[i1].setTag("orange3");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i1].setBackgroundResource(R.drawable.orange4);
+                array[i1].setTag("orange4");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("4")) {
+                array[i1].setBackgroundResource(R.drawable.toe);
+                array[i1].setTag(" ");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, " ");
+            } else if (array[i1].getTag().equals(" ")) {
+                array[i1].setBackgroundResource(R.drawable.orange);
+                array[i1].setTag("orange");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            //button i2 check
+            if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i2].setBackgroundResource(R.drawable.orange2);
+                array[i2].setTag("orange2");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i2].setBackgroundResource(R.drawable.orange3);
+                array[i2].setTag("orange3");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i2].setBackgroundResource(R.drawable.orange4);
+                array[i2].setTag("orange4");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("4")) {
+                array[i2].setBackgroundResource(R.drawable.toe);
+                array[i2].setTag(" ");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, " ");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i2].setBackgroundResource(R.drawable.orange);
+                array[i2].setTag("orange");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            //button i3 check
+            if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i3].setBackgroundResource(R.drawable.orange2);
+                array[i3].setTag("orange2");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i3].setBackgroundResource(R.drawable.orange3);
+                array[i3].setTag("orange3");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i3].setBackgroundResource(R.drawable.orange4);
+                array[i3].setTag("orange4");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("4")) {
+                array[i3].setBackgroundResource(R.drawable.toe);
+                array[i3].setTag(" ");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, " ");
+            } else if (array[i3].getTag().equals(" ")) {
+                array[i3].setBackgroundResource(R.drawable.orange);
+                array[i3].setTag("orange");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            //button i4 check
+            if (array[i4].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i4].setBackgroundResource(R.drawable.orange2);
+                array[i4].setTag("orange2");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i4].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i4].setBackgroundResource(R.drawable.orange3);
+                array[i4].setTag("orange3");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i4].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i4].setBackgroundResource(R.drawable.orange4);
+                array[i4].setTag("orange4");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i4].getTag(R.id.TAG_ONLINE_ID).equals("4")) {
+                array[i4].setBackgroundResource(R.drawable.toe);
+                array[i4].setTag(" ");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, " ");
+            } else if (array[i4].getTag().equals(" ")) {
+                array[i4].setBackgroundResource(R.drawable.orange);
+                array[i4].setTag("orange");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+
+            array[i].setBackgroundResource(R.drawable.toe);
+            array[i].setTag(" ");
+            array[i].setTag(R.id.TAG_ONLINE_ID, " ");
+        }    //purple check button i
+        if (array[i].getTag().equals("purple4")) {
+            //button i1 check
+            if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i1].setBackgroundResource(R.drawable.purple2);
+                array[i1].setTag("purple2");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "2");
+
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i1].setBackgroundResource(R.drawable.purple3);
+                array[i1].setTag("purple3");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i1].setBackgroundResource(R.drawable.purple4);
+                array[i1].setTag("purple4");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("4")) {
+                array[i1].setBackgroundResource(R.drawable.toe);
+                array[i1].setTag(" ");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, " ");
+            } else if (array[i1].getTag().equals(" ")) {
+                array[i1].setBackgroundResource(R.drawable.purple);
+                array[i1].setTag("purple");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            //button i2 check
+            if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i2].setBackgroundResource(R.drawable.purple2);
+                array[i2].setTag("purple2");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i2].setBackgroundResource(R.drawable.purple3);
+                array[i2].setTag("purple3");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i2].setBackgroundResource(R.drawable.purple4);
+                array[i2].setTag("purple4");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("4")) {
+                array[i2].setBackgroundResource(R.drawable.toe);
+                array[i2].setTag(" ");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, " ");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i2].setBackgroundResource(R.drawable.purple);
+                array[i2].setTag("purple");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            //button i3 check
+            if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i3].setBackgroundResource(R.drawable.purple2);
+                array[i3].setTag("purple2");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i3].setBackgroundResource(R.drawable.purple3);
+                array[i3].setTag("purple3");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i3].setBackgroundResource(R.drawable.purple4);
+                array[i3].setTag("purple4");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("4")) {
+                array[i3].setBackgroundResource(R.drawable.toe);
+                array[i3].setTag(" ");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, " ");
+            } else if (array[i3].getTag().equals(" ")) {
+                array[i3].setBackgroundResource(R.drawable.purple);
+                array[i3].setTag("purple");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            //button i4 check
+            if (array[i4].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i4].setBackgroundResource(R.drawable.purple2);
+                array[i4].setTag("purple2");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i4].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i4].setBackgroundResource(R.drawable.purple3);
+                array[i4].setTag("purple3");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i4].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i4].setBackgroundResource(R.drawable.purple4);
+                array[i4].setTag("purple4");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i4].getTag(R.id.TAG_ONLINE_ID).equals("4")) {
+                array[i4].setBackgroundResource(R.drawable.toe);
+                array[i4].setTag(" ");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, " ");
+            } else if (array[i4].getTag().equals(" ")) {
+                array[i4].setBackgroundResource(R.drawable.purple);
+                array[i4].setTag("purple");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+
+            array[i].setBackgroundResource(R.drawable.toe);
+            array[i].setTag(" ");
+            array[i].setTag(R.id.TAG_ONLINE_ID, " ");
+        }    //yellow check button i
+        if (array[i].getTag().equals("yellow4")) {
+            //button i1 check
+            if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i1].setBackgroundResource(R.drawable.yellow2);
+                array[i1].setTag("yellow2");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "2");
+
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i1].setBackgroundResource(R.drawable.yellow3);
+                array[i1].setTag("yellow3");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i1].setBackgroundResource(R.drawable.yellow4);
+                array[i1].setTag("yellow4");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("4")) {
+                array[i1].setBackgroundResource(R.drawable.toe);
+                array[i1].setTag(" ");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, " ");
+            } else if (array[i1].getTag().equals(" ")) {
+                array[i1].setBackgroundResource(R.drawable.yellow);
+                array[i1].setTag("yellow");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            //button i2 check
+            if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i2].setBackgroundResource(R.drawable.yellow2);
+                array[i2].setTag("yellow2");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i2].setBackgroundResource(R.drawable.yellow3);
+                array[i2].setTag("yellow3");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i2].setBackgroundResource(R.drawable.yellow4);
+                array[i2].setTag("yellow4");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("4")) {
+                array[i2].setBackgroundResource(R.drawable.toe);
+                array[i2].setTag(" ");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, " ");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i2].setBackgroundResource(R.drawable.yellow);
+                array[i2].setTag("yellow");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            //button i3 check
+            if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i3].setBackgroundResource(R.drawable.yellow2);
+                array[i3].setTag("yellow2");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i3].setBackgroundResource(R.drawable.yellow3);
+                array[i3].setTag("yellow3");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i3].setBackgroundResource(R.drawable.yellow4);
+                array[i3].setTag("yellow4");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("4")) {
+                array[i3].setBackgroundResource(R.drawable.toe);
+                array[i3].setTag(" ");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, " ");
+            } else if (array[i3].getTag().equals(" ")) {
+                array[i3].setBackgroundResource(R.drawable.yellow);
+                array[i3].setTag("yellow");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            //button i4 check
+            if (array[i4].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i4].setBackgroundResource(R.drawable.yellow2);
+                array[i4].setTag("yellow2");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i4].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i4].setBackgroundResource(R.drawable.yellow3);
+                array[i4].setTag("yellow3");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i4].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i4].setBackgroundResource(R.drawable.yellow4);
+                array[i4].setTag("yellow4");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i4].getTag(R.id.TAG_ONLINE_ID).equals("4")) {
+                array[i4].setBackgroundResource(R.drawable.toe);
+                array[i4].setTag(" ");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, " ");
+            } else if (array[i4].getTag().equals(" ")) {
+                array[i4].setBackgroundResource(R.drawable.yellow);
+                array[i4].setTag("yellow");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+
+            array[i].setBackgroundResource(R.drawable.toe);
+            array[i].setTag(" ");
+            array[i].setTag(R.id.TAG_ONLINE_ID, " ");
+        }
+        //white check button i
+        if (array[i].getTag().equals("white4")) {
+            //button i1 check
+            if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i1].setBackgroundResource(R.drawable.white2);
+                array[i1].setTag("white2");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "2");
+
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i1].setBackgroundResource(R.drawable.white3);
+                array[i1].setTag("white3");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i1].setBackgroundResource(R.drawable.white4);
+                array[i1].setTag("white4");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("4")) {
+                array[i1].setBackgroundResource(R.drawable.toe);
+                array[i1].setTag(" ");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, " ");
+            } else if (array[i1].getTag().equals(" ")) {
+                array[i1].setBackgroundResource(R.drawable.white);
+                array[i1].setTag("white");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            //button i2 check
+            if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i2].setBackgroundResource(R.drawable.white2);
+                array[i2].setTag("white2");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i2].setBackgroundResource(R.drawable.white3);
+                array[i2].setTag("white3");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i2].setBackgroundResource(R.drawable.white4);
+                array[i2].setTag("white4");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("4")) {
+                array[i2].setBackgroundResource(R.drawable.toe);
+                array[i2].setTag(" ");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, " ");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i2].setBackgroundResource(R.drawable.white);
+                array[i2].setTag("white");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            //button i3 check
+            if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i3].setBackgroundResource(R.drawable.white2);
+                array[i3].setTag("white2");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i3].setBackgroundResource(R.drawable.white3);
+                array[i3].setTag("white3");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i3].setBackgroundResource(R.drawable.white4);
+                array[i3].setTag("white4");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("4")) {
+                array[i3].setBackgroundResource(R.drawable.toe);
+                array[i3].setTag(" ");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, " ");
+            } else if (array[i3].getTag().equals(" ")) {
+                array[i3].setBackgroundResource(R.drawable.white);
+                array[i3].setTag("white");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            //button i4 check
+            if (array[i4].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i4].setBackgroundResource(R.drawable.white2);
+                array[i4].setTag("white2");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i4].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i4].setBackgroundResource(R.drawable.white3);
+                array[i4].setTag("white3");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i4].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i4].setBackgroundResource(R.drawable.white4);
+                array[i4].setTag("white4");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i4].getTag(R.id.TAG_ONLINE_ID).equals("4")) {
+                array[i4].setBackgroundResource(R.drawable.toe);
+                array[i4].setTag(" ");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, " ");
+            } else if (array[i4].getTag().equals(" ")) {
+                array[i4].setBackgroundResource(R.drawable.white);
+                array[i4].setTag("white");
+                array[i4].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+
+            array[i].setBackgroundResource(R.drawable.toe);
+            array[i].setTag(" ");
+            array[i].setTag(R.id.TAG_ONLINE_ID, " ");
+        }
     }
 
-    private void check3(final int i, final int i1, final int i2, final int i3) {
+    private void check3(int i, int i1, int i2, int i3) {
 
-        new Handler().postDelayed(new Runnable() {
-            public void run() {
-                // do something...
-                //red check button i
-                if (array[i].getTag().equals("red3")) {
+        //red check button i
+        if (array[i].getTag().equals("red3")) {
+            //button i1 check
+            if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i1].setBackgroundResource(R.drawable.red2);
+                array[i1].setTag("red2");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "2");
 
-                    //button i1 check
-                    if (array[i1].getTag().equals("red") || array[i1].getTag().equals("green")) {
-                        array[i1].setBackgroundResource(R.drawable.red2);
-                        array[i1].setTag("red2");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i1].setBackgroundResource(R.drawable.red3);
+                array[i1].setTag("red3");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i1].setBackgroundResource(R.drawable.red4);
+                array[i1].setTag("red4");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i1].setBackgroundResource(R.drawable.red);
+                array[i1].setTag("red");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "1");
 
-                    } else if (array[i1].getTag().equals("red2") || array[i1].getTag().equals("green2")) {
-                        array[i1].setBackgroundResource(R.drawable.red3);
-                        array[i1].setTag("red3");
-                    } else if (array[i1].getTag().equals("red3") || array[i1].getTag().equals("green3")) {
-                        array[i1].setBackgroundResource(R.drawable.red4);
-                        array[i1].setTag("red4");
-                    } else {
-                        array[i1].setBackgroundResource(R.drawable.red);
-                        array[i1].setTag("red");
-
-                    }
-                    //button i2 check
-                    if (array[i2].getTag().equals("red") || array[i2].getTag().equals("green")) {
-                        array[i2].setBackgroundResource(R.drawable.red2);
-                        array[i2].setTag("red2");
-                    } else if (array[i2].getTag().equals("red2") || array[i2].getTag().equals("green2")) {
-                        array[i2].setBackgroundResource(R.drawable.red3);
-                        array[i2].setTag("red3");
-                    } else if (array[i2].getTag().equals("red3") || array[i2].getTag().equals("green3")) {
-                        array[i2].setBackgroundResource(R.drawable.red4);
-                        array[i2].setTag("red4");
-                    } else {
-                        array[i2].setBackgroundResource(R.drawable.red);
-                        array[i2].setTag("red");
-
-                    }
-                    //button i3 check
-                    if (array[i3].getTag().equals("red") || array[i3].getTag().equals("green")) {
-                        array[i3].setBackgroundResource(R.drawable.red2);
-                        array[i3].setTag("red2");
-                    } else if (array[i3].getTag().equals("red2") || array[i3].getTag().equals("green2")) {
-                        array[i3].setBackgroundResource(R.drawable.red3);
-                        array[i3].setTag("red3");
-                    } else if (array[i3].getTag().equals("red3") || array[i3].getTag().equals("red3")) {
-                        array[i3].setBackgroundResource(R.drawable.red4);
-                        array[i3].setTag("red4");
-                    } else {
-                        array[i3].setBackgroundResource(R.drawable.red);
-                        array[i3].setTag("red");
-
-                    }
-                    array[i].setBackgroundResource(R.drawable.toe);
-                    array[i].setTag(" ");
-
-                    check();
-
-                }
-                //green check button i
-                else if (array[i].getTag().equals("green3")) {
-                    //button i1 check
-                    if (array[i1].getTag().equals("green") || array[i1].getTag().equals("red")) {
-                        array[i1].setBackgroundResource(R.drawable.green2);
-                        array[i1].setTag("green2");
-                    } else if (array[i1].getTag().equals("green2") || array[i1].getTag().equals("red2")) {
-                        array[i1].setBackgroundResource(R.drawable.green3);
-                        array[i1].setTag("green3");
-                    } else if (array[i1].getTag().equals("green3") || array[i1].getTag().equals("red3")) {
-                        array[i1].setBackgroundResource(R.drawable.green4);
-                        array[i1].setTag("green4");
-                    } else {
-                        array[i1].setBackgroundResource(R.drawable.green);
-                        array[i1].setTag("green");
-
-                    }
-                    //button i2 check
-                    if (array[i2].getTag().equals("green") || array[i2].getTag().equals("red")) {
-                        array[i2].setBackgroundResource(R.drawable.green2);
-                        array[i2].setTag("green2");
-                    } else if (array[i2].getTag().equals("green2") || array[i2].getTag().equals("red2")) {
-                        array[i2].setBackgroundResource(R.drawable.green3);
-                        array[i2].setTag("green3");
-                    } else if (array[i2].getTag().equals("green3") || array[i2].getTag().equals("red3")) {
-                        array[i2].setBackgroundResource(R.drawable.green4);
-                        array[i2].setTag("green4");
-                    } else {
-                        array[i2].setBackgroundResource(R.drawable.green);
-                        array[i2].setTag("green");
-
-                    }
-                    //button i3 check
-                    if (array[i3].getTag().equals("green") || array[i3].getTag().equals("red")) {
-                        array[i3].setBackgroundResource(R.drawable.green2);
-                        array[i3].setTag("green2");
-                    } else if (array[i3].getTag().equals("green2") || array[i3].getTag().equals("red2")) {
-                        array[i3].setBackgroundResource(R.drawable.green3);
-                        array[i3].setTag("green3");
-                    } else if (array[i3].getTag().equals("green3") || array[i3].getTag().equals("red3")) {
-                        array[i3].setBackgroundResource(R.drawable.green4);
-                        array[i3].setTag("green4");
-                    } else {
-                        array[i3].setBackgroundResource(R.drawable.green);
-                        array[i3].setTag("green");
-
-                    }
-                    array[i].setBackgroundResource(R.drawable.toe);
-                    array[i].setTag(" ");
-                    check();
-                }
-                //blue check button i
-                else if (array[i].getTag().equals("blue3")) {
-                    //button i1 check
-                    if (array[i1].getTag().equals("blue") || array[i1].getTag().equals("red")) {
-                        array[i1].setBackgroundResource(R.drawable.blue2);
-                        array[i1].setTag("blue2");
-                    } else if (array[i1].getTag().equals("blue2") || array[i1].getTag().equals("red2")) {
-                        array[i1].setBackgroundResource(R.drawable.blue3);
-                        array[i1].setTag("blue3");
-                    } else if (array[i1].getTag().equals("blue3") || array[i1].getTag().equals("red3")) {
-                        array[i1].setBackgroundResource(R.drawable.blue4);
-                        array[i1].setTag("blue4");
-                    } else {
-                        array[i1].setBackgroundResource(R.drawable.blue);
-                        array[i1].setTag("blue");
-
-                    }
-                    //button i2 check
-                    if (array[i2].getTag().equals("blue") || array[i2].getTag().equals("red")) {
-                        array[i2].setBackgroundResource(R.drawable.blue2);
-                        array[i2].setTag("blue2");
-                    } else if (array[i2].getTag().equals("blue2") || array[i2].getTag().equals("red2")) {
-                        array[i2].setBackgroundResource(R.drawable.blue3);
-                        array[i2].setTag("blue3");
-                    } else if (array[i2].getTag().equals("blue3") || array[i2].getTag().equals("red3")) {
-                        array[i2].setBackgroundResource(R.drawable.blue4);
-                        array[i2].setTag("blue4");
-                    } else {
-                        array[i2].setBackgroundResource(R.drawable.blue);
-                        array[i2].setTag("blue");
-
-                    }
-                    //button i3 check
-                    if (array[i3].getTag().equals("blue") || array[i3].getTag().equals("red")) {
-                        array[i3].setBackgroundResource(R.drawable.blue2);
-                        array[i3].setTag("blue2");
-                    } else if (array[i3].getTag().equals("blue2") || array[i3].getTag().equals("red2")) {
-                        array[i3].setBackgroundResource(R.drawable.blue3);
-                        array[i3].setTag("blue3");
-                    } else if (array[i3].getTag().equals("blue3") || array[i3].getTag().equals("red3")) {
-                        array[i3].setBackgroundResource(R.drawable.blue4);
-                        array[i3].setTag("blue4");
-                    } else {
-                        array[i3].setBackgroundResource(R.drawable.blue);
-                        array[i3].setTag("blue");
-
-                    }
-                    array[i].setBackgroundResource(R.drawable.toe);
-                    array[i].setTag(" ");
-                    check();
-                }
             }
-        }, 1000);
+
+            //button i2 check
+            if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i2].setBackgroundResource(R.drawable.red2);
+                array[i2].setTag("red2");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "2");
+
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i2].setBackgroundResource(R.drawable.red3);
+                array[i2].setTag("red3");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i2].setBackgroundResource(R.drawable.red4);
+                array[i2].setTag("red4");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i2].setBackgroundResource(R.drawable.red);
+                array[i2].setTag("red");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            //button i3 check
+            if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i3].setBackgroundResource(R.drawable.red2);
+                array[i3].setTag("red2");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "2");
+
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i3].setBackgroundResource(R.drawable.red3);
+                array[i3].setTag("red3");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i3].setBackgroundResource(R.drawable.red4);
+                array[i3].setTag("red4");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i3].setBackgroundResource(R.drawable.red);
+                array[i3].setTag("red");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            array[i].setBackgroundResource(R.drawable.toe);
+            array[i].setTag(" ");
+            array[i].setTag(R.id.TAG_ONLINE_ID, " ");
+
+        }
+        //green check button i
+        if (array[i].getTag().equals("green3")) {
+            //button i1 check
+            if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i1].setBackgroundResource(R.drawable.green2);
+                array[i1].setTag("green2");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "2");
+
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i1].setBackgroundResource(R.drawable.green3);
+                array[i1].setTag("green3");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i1].setBackgroundResource(R.drawable.green4);
+                array[i1].setTag("green4");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i1].setBackgroundResource(R.drawable.green);
+                array[i1].setTag("green");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+
+            //button i2 check
+            if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i2].setBackgroundResource(R.drawable.green2);
+                array[i2].setTag("green2");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "2");
+
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i2].setBackgroundResource(R.drawable.green3);
+                array[i2].setTag("green3");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i2].setBackgroundResource(R.drawable.green4);
+                array[i2].setTag("green4");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i2].setBackgroundResource(R.drawable.green);
+                array[i2].setTag("green");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            //button i3 check
+            if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i3].setBackgroundResource(R.drawable.green2);
+                array[i3].setTag("green2");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "2");
+
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i3].setBackgroundResource(R.drawable.green3);
+                array[i3].setTag("green3");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i3].setBackgroundResource(R.drawable.green4);
+                array[i3].setTag("green4");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i3].setBackgroundResource(R.drawable.green);
+                array[i3].setTag("green");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            array[i].setBackgroundResource(R.drawable.toe);
+            array[i].setTag(" ");
+            array[i].setTag(R.id.TAG_ONLINE_ID, " ");
+        }  //blue check button i
+        if (array[i].getTag().equals("blue3")) {
+            //button i1 check
+            if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i1].setBackgroundResource(R.drawable.blue2);
+                array[i1].setTag("blue2");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "2");
+
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i1].setBackgroundResource(R.drawable.blue3);
+                array[i1].setTag("blue3");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i1].setBackgroundResource(R.drawable.blue4);
+                array[i1].setTag("blue4");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i1].setBackgroundResource(R.drawable.blue);
+                array[i1].setTag("blue");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+
+            //button i2 check
+            if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i2].setBackgroundResource(R.drawable.blue2);
+                array[i2].setTag("blue2");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "2");
+
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i2].setBackgroundResource(R.drawable.blue3);
+                array[i2].setTag("blue3");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i2].setBackgroundResource(R.drawable.blue4);
+                array[i2].setTag("blue4");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i2].setBackgroundResource(R.drawable.blue);
+                array[i2].setTag("blue");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            //button i3 check
+            if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i3].setBackgroundResource(R.drawable.blue2);
+                array[i3].setTag("blue2");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "2");
+
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i3].setBackgroundResource(R.drawable.blue3);
+                array[i3].setTag("blue3");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i3].setBackgroundResource(R.drawable.blue4);
+                array[i3].setTag("blue4");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i3].setBackgroundResource(R.drawable.blue);
+                array[i3].setTag("blue");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            array[i].setBackgroundResource(R.drawable.toe);
+            array[i].setTag(" ");
+            array[i].setTag(R.id.TAG_ONLINE_ID, " ");
+        }
+        //pink check button i
+        if (array[i].getTag().equals("pink3")) {
+            //button i1 check
+            if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i1].setBackgroundResource(R.drawable.pink2);
+                array[i1].setTag("pink2");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "2");
+
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i1].setBackgroundResource(R.drawable.pink3);
+                array[i1].setTag("pink3");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i1].setBackgroundResource(R.drawable.pink4);
+                array[i1].setTag("pink4");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i1].setBackgroundResource(R.drawable.pink);
+                array[i1].setTag("pink");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+
+            //button i2 check
+            if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i2].setBackgroundResource(R.drawable.pink2);
+                array[i2].setTag("pink2");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "2");
+
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i2].setBackgroundResource(R.drawable.pink3);
+                array[i2].setTag("pink3");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i2].setBackgroundResource(R.drawable.pink4);
+                array[i2].setTag("pink4");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i2].setBackgroundResource(R.drawable.pink);
+                array[i2].setTag("pink");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            //button i3 check
+            if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i3].setBackgroundResource(R.drawable.pink2);
+                array[i3].setTag("pink2");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "2");
+
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i3].setBackgroundResource(R.drawable.pink3);
+                array[i3].setTag("pink3");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i3].setBackgroundResource(R.drawable.pink4);
+                array[i3].setTag("pink4");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i3].setBackgroundResource(R.drawable.pink);
+                array[i3].setTag("pink");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            array[i].setBackgroundResource(R.drawable.toe);
+            array[i].setTag(" ");
+            array[i].setTag(R.id.TAG_ONLINE_ID, " ");
+        }   //orange check button i
+        if (array[i].getTag().equals("orange3")) {
+            //button i1 check
+            if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i1].setBackgroundResource(R.drawable.orange2);
+                array[i1].setTag("orange2");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "2");
+
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i1].setBackgroundResource(R.drawable.orange3);
+                array[i1].setTag("orange3");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i1].setBackgroundResource(R.drawable.orange4);
+                array[i1].setTag("orange4");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i1].setBackgroundResource(R.drawable.orange);
+                array[i1].setTag("orange");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+
+            //button i2 check
+            if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i2].setBackgroundResource(R.drawable.orange2);
+                array[i2].setTag("orange2");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "2");
+
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i2].setBackgroundResource(R.drawable.orange3);
+                array[i2].setTag("orange3");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i2].setBackgroundResource(R.drawable.orange4);
+                array[i2].setTag("orange4");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i2].setBackgroundResource(R.drawable.orange);
+                array[i2].setTag("orange");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            //button i3 check
+            if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i3].setBackgroundResource(R.drawable.orange2);
+                array[i3].setTag("orange2");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "2");
+
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i3].setBackgroundResource(R.drawable.orange3);
+                array[i3].setTag("orange3");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i3].setBackgroundResource(R.drawable.orange4);
+                array[i3].setTag("orange4");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i3].setBackgroundResource(R.drawable.orange);
+                array[i3].setTag("orange");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            array[i].setBackgroundResource(R.drawable.toe);
+            array[i].setTag(" ");
+            array[i].setTag(R.id.TAG_ONLINE_ID, " ");
+        }
+        //purple check button i
+        if (array[i].getTag().equals("purple3")) {
+            //button i1 check
+            if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i1].setBackgroundResource(R.drawable.purple2);
+                array[i1].setTag("purple2");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "2");
+
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i1].setBackgroundResource(R.drawable.purple3);
+                array[i1].setTag("purple3");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i1].setBackgroundResource(R.drawable.purple4);
+                array[i1].setTag("purple4");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i1].setBackgroundResource(R.drawable.purple);
+                array[i1].setTag("purple");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+
+            //button i2 check
+            if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i2].setBackgroundResource(R.drawable.purple2);
+                array[i2].setTag("purple2");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "2");
+
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i2].setBackgroundResource(R.drawable.purple3);
+                array[i2].setTag("purple3");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i2].setBackgroundResource(R.drawable.purple4);
+                array[i2].setTag("purple4");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i2].setBackgroundResource(R.drawable.purple);
+                array[i2].setTag("purple");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            //button i3 check
+            if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i3].setBackgroundResource(R.drawable.purple2);
+                array[i3].setTag("purple2");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "2");
+
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i3].setBackgroundResource(R.drawable.purple3);
+                array[i3].setTag("purple3");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i3].setBackgroundResource(R.drawable.purple4);
+                array[i3].setTag("purple4");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i3].setBackgroundResource(R.drawable.purple);
+                array[i3].setTag("purple");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            array[i].setBackgroundResource(R.drawable.toe);
+            array[i].setTag(" ");
+            array[i].setTag(R.id.TAG_ONLINE_ID, " ");
+        }   //yellow check button i
+        if (array[i].getTag().equals("yellow3")) {
+            //button i1 check
+            if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i1].setBackgroundResource(R.drawable.yellow2);
+                array[i1].setTag("yellow2");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "2");
+
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i1].setBackgroundResource(R.drawable.yellow3);
+                array[i1].setTag("yellow3");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i1].setBackgroundResource(R.drawable.yellow4);
+                array[i1].setTag("yellow4");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i1].setBackgroundResource(R.drawable.yellow);
+                array[i1].setTag("yellow");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+
+            //button i2 check
+            if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i2].setBackgroundResource(R.drawable.yellow2);
+                array[i2].setTag("yellow2");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "2");
+
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i2].setBackgroundResource(R.drawable.yellow3);
+                array[i2].setTag("yellow3");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i2].setBackgroundResource(R.drawable.yellow4);
+                array[i2].setTag("yellow4");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i2].setBackgroundResource(R.drawable.yellow);
+                array[i2].setTag("yellow");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            //button i3 check
+            if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i3].setBackgroundResource(R.drawable.yellow2);
+                array[i3].setTag("yellow2");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "2");
+
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i3].setBackgroundResource(R.drawable.yellow3);
+                array[i3].setTag("yellow3");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i3].setBackgroundResource(R.drawable.yellow4);
+                array[i3].setTag("yellow4");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i3].setBackgroundResource(R.drawable.yellow);
+                array[i3].setTag("yellow");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            array[i].setBackgroundResource(R.drawable.toe);
+            array[i].setTag(" ");
+            array[i].setTag(R.id.TAG_ONLINE_ID, " ");
+        }   //white check button i
+        if (array[i].getTag().equals("white3")) {
+            //button i1 check
+            if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i1].setBackgroundResource(R.drawable.white2);
+                array[i1].setTag("white2");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "2");
+
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i1].setBackgroundResource(R.drawable.white3);
+                array[i1].setTag("white3");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i1].setBackgroundResource(R.drawable.white4);
+                array[i1].setTag("white4");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i1].setBackgroundResource(R.drawable.white);
+                array[i1].setTag("white");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+
+            //button i2 check
+            if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i2].setBackgroundResource(R.drawable.white2);
+                array[i2].setTag("white2");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "2");
+
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i2].setBackgroundResource(R.drawable.white3);
+                array[i2].setTag("white3");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i2].setBackgroundResource(R.drawable.white4);
+                array[i2].setTag("white4");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i2].setBackgroundResource(R.drawable.white);
+                array[i2].setTag("white");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            //button i3 check
+            if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i3].setBackgroundResource(R.drawable.white2);
+                array[i3].setTag("white2");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "2");
+
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i3].setBackgroundResource(R.drawable.white3);
+                array[i3].setTag("white3");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals("3")) {
+                array[i3].setBackgroundResource(R.drawable.white4);
+                array[i3].setTag("white4");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "4");
+            } else if (array[i3].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i3].setBackgroundResource(R.drawable.white);
+                array[i3].setTag("white");
+                array[i3].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            array[i].setBackgroundResource(R.drawable.toe);
+            array[i].setTag(" ");
+            array[i].setTag(R.id.TAG_ONLINE_ID, " ");
+        }
     }
 
-    private void check2(final int i, final int i1, final int i2) {
+    private void check2(int i, int i1, int i2) {
 
-        new Handler().postDelayed(new Runnable() {
-            public void run() {
-                // do something...
-                //red check button i
-                if (array[i].getTag().equals("red2")) {
 
-                    //button i1 check
-                    if (array[i1].getTag().equals("red") || array[i1].getTag().equals("green")) {
-                        array[i1].setBackgroundResource(R.drawable.red2);
-                        array[i1].setTag("red2");
+        //red check button i
+        if (array[i].getTag().equals("red2")) {
+            //button i1 check
+            if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i1].setBackgroundResource(R.drawable.red2);
+                array[i1].setTag("red2");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "2");
 
-                    } else if (array[i1].getTag().equals("red2") || array[i1].getTag().equals("green2")) {
-                        array[i1].setBackgroundResource(R.drawable.red3);
-                        array[i1].setTag("red3");
-                    } else {
-                        array[i1].setBackgroundResource(R.drawable.red);
-                        array[i1].setTag("red");
 
-                    }
-                    //button i2 check
-                    if (array[i2].getTag().equals("red") || array[i2].getTag().equals("green")) {
-                        array[i2].setBackgroundResource(R.drawable.red2);
-                        array[i2].setTag("red2");
-                    } else if (array[i2].getTag().equals("red2") || array[i2].getTag().equals("green2")) {
-                        array[i2].setBackgroundResource(R.drawable.red3);
-                        array[i2].setTag("red3");
-                    } else {
-                        array[i2].setBackgroundResource(R.drawable.red);
-                        array[i2].setTag("red");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i1].setBackgroundResource(R.drawable.red3);
+                array[i1].setTag("red3");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i1].setBackgroundResource(R.drawable.red);
+                array[i1].setTag("red");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "1");
 
-                    }
-                    array[i].setBackgroundResource(R.drawable.toe);
-                    array[i].setTag(" ");
-                    check();
-
-                }
-                //green check button i
-                else if (array[i].getTag().equals("green2")) {
-                    //button i1 check
-                    if (array[i1].getTag().equals("green") || array[i1].getTag().equals("red")) {
-                        array[i1].setBackgroundResource(R.drawable.green2);
-                        array[i1].setTag("green2");
-                    } else if (array[i1].getTag().equals("green2") || array[i1].getTag().equals("red2")) {
-                        array[i1].setBackgroundResource(R.drawable.green3);
-                        array[i1].setTag("green3");
-                    } else {
-                        array[i1].setBackgroundResource(R.drawable.green);
-                        array[i1].setTag("green");
-
-                    }
-                    //button i2 check
-                    if (array[i2].getTag().equals("green") || array[i2].getTag().equals("red")) {
-                        array[i2].setBackgroundResource(R.drawable.green2);
-                        array[i2].setTag("green2");
-                    } else if (array[i2].getTag().equals("green2") || array[i2].getTag().equals("red2")) {
-                        array[i2].setBackgroundResource(R.drawable.green3);
-                        array[i2].setTag("green3");
-                    } else {
-                        array[i2].setBackgroundResource(R.drawable.green);
-                        array[i2].setTag("green");
-
-                    }
-                    array[i].setBackgroundResource(R.drawable.toe);
-                    array[i].setTag(" ");
-                    check();
-                }//blue check button i
-                else if (array[i].getTag().equals("blue2")) {
-                    //button i1 check
-                    if (array[i1].getTag().equals("blue") || array[i1].getTag().equals("red")) {
-                        array[i1].setBackgroundResource(R.drawable.blue2);
-                        array[i1].setTag("blue2");
-                    } else if (array[i1].getTag().equals("blue2") || array[i1].getTag().equals("red2")) {
-                        array[i1].setBackgroundResource(R.drawable.blue3);
-                        array[i1].setTag("blue3");
-                    } else {
-                        array[i1].setBackgroundResource(R.drawable.blue);
-                        array[i1].setTag("blue");
-
-                    }
-                    //button i2 check
-                    if (array[i2].getTag().equals("blue") || array[i2].getTag().equals("red")) {
-                        array[i2].setBackgroundResource(R.drawable.blue2);
-                        array[i2].setTag("blue2");
-                    } else if (array[i2].getTag().equals("blue2") || array[i2].getTag().equals("red2")) {
-                        array[i2].setBackgroundResource(R.drawable.blue3);
-                        array[i2].setTag("blue3");
-                    } else {
-                        array[i2].setBackgroundResource(R.drawable.blue);
-                        array[i2].setTag("blue");
-
-                    }
-                    array[i].setBackgroundResource(R.drawable.toe);
-                    array[i].setTag(" ");
-                    check();
-                }
 
             }
-        }, 1000);
+            //button i2 check
+            if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i2].setBackgroundResource(R.drawable.red2);
+                array[i2].setTag("red2");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i2].setBackgroundResource(R.drawable.red3);
+                array[i2].setTag("red3");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i2].setBackgroundResource(R.drawable.red);
+                array[i2].setTag("red");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "1");
+            }
+            array[i].setBackgroundResource(R.drawable.toe);
+            array[i].setTag(" ");
+            array[i].setTag(R.id.TAG_ONLINE_ID, " ");
+            // check();
+
+        }
+        //green check button i
+        else if (array[i].getTag().equals("green2")) {
+            //button i1 check
+            if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i1].setBackgroundResource(R.drawable.green2);
+                array[i1].setTag("green2");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i1].setBackgroundResource(R.drawable.green3);
+                array[i1].setTag("green3");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i1].setBackgroundResource(R.drawable.green);
+                array[i1].setTag("green");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            //button i2 check
+            if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i2].setBackgroundResource(R.drawable.green2);
+                array[i2].setTag("green2");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i2].setBackgroundResource(R.drawable.green3);
+                array[i2].setTag("green3");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i2].setBackgroundResource(R.drawable.green);
+                array[i2].setTag("green");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            array[i].setBackgroundResource(R.drawable.toe);
+            array[i].setTag(" ");
+            array[i].setTag(R.id.TAG_ONLINE_ID, " ");
+            //   check();
+        }
+        //blue check button i
+        else if (array[i].getTag().equals("blue2")) {
+            //button i1 check
+            if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i1].setBackgroundResource(R.drawable.blue2);
+                array[i1].setTag("blue2");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i1].setBackgroundResource(R.drawable.blue3);
+                array[i1].setTag("blue3");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i1].setBackgroundResource(R.drawable.blue);
+                array[i1].setTag("blue");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "1");
+            }
+            //button i2 check
+            if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i2].setBackgroundResource(R.drawable.blue2);
+                array[i2].setTag("blue2");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i2].setBackgroundResource(R.drawable.blue3);
+                array[i2].setTag("blue3");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i2].setBackgroundResource(R.drawable.blue);
+                array[i2].setTag("blue");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            array[i].setBackgroundResource(R.drawable.toe);
+            array[i].setTag(" ");
+            array[i].setTag(R.id.TAG_ONLINE_ID, " ");
+            // check();
+        }
+
+
+        //pink check button i
+        else if (array[i].getTag().equals("pink2")) {
+            //button i1 check
+            if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i1].setBackgroundResource(R.drawable.pink2);
+                array[i1].setTag("pink2");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i1].setBackgroundResource(R.drawable.pink3);
+                array[i1].setTag("pink3");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i1].setBackgroundResource(R.drawable.pink);
+                array[i1].setTag("pink");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "1");
+            }
+            //button i2 check
+            if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i2].setBackgroundResource(R.drawable.pink2);
+                array[i2].setTag("pink2");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i2].setBackgroundResource(R.drawable.pink3);
+                array[i2].setTag("pink3");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i2].setBackgroundResource(R.drawable.pink);
+                array[i2].setTag("pink");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            array[i].setBackgroundResource(R.drawable.toe);
+            array[i].setTag(" ");
+            array[i].setTag(R.id.TAG_ONLINE_ID, " ");
+            // check();
+        }
+        //orange check button i
+        else if (array[i].getTag().equals("orange2")) {
+            //button i1 check
+            if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i1].setBackgroundResource(R.drawable.orange2);
+                array[i1].setTag("orange2");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i1].setBackgroundResource(R.drawable.orange3);
+                array[i1].setTag("orange3");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i1].setBackgroundResource(R.drawable.orange);
+                array[i1].setTag("orange");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "1");
+            }
+            //button i2 check
+            if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i2].setBackgroundResource(R.drawable.orange2);
+                array[i2].setTag("orange2");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i2].setBackgroundResource(R.drawable.orange3);
+                array[i2].setTag("orange3");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i2].setBackgroundResource(R.drawable.orange);
+                array[i2].setTag("orange");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            array[i].setBackgroundResource(R.drawable.toe);
+            array[i].setTag(" ");
+            array[i].setTag(R.id.TAG_ONLINE_ID, " ");
+            // check();
+        } //purple check button i
+        else if (array[i].getTag().equals("purple2")) {
+            //button i1 check
+            if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i1].setBackgroundResource(R.drawable.purple2);
+                array[i1].setTag("purple2");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i1].setBackgroundResource(R.drawable.purple3);
+                array[i1].setTag("purple3");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i1].setBackgroundResource(R.drawable.purple);
+                array[i1].setTag("purple");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "1");
+            }
+            //button i2 check
+            if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i2].setBackgroundResource(R.drawable.purple2);
+                array[i2].setTag("purple2");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i2].setBackgroundResource(R.drawable.purple3);
+                array[i2].setTag("purple3");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i2].setBackgroundResource(R.drawable.purple);
+                array[i2].setTag("purple");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            array[i].setBackgroundResource(R.drawable.toe);
+            array[i].setTag(" ");
+            array[i].setTag(R.id.TAG_ONLINE_ID, " ");
+            // check();
+        } //yellow check button i
+        else if (array[i].getTag().equals("yellow2")) {
+            //button i1 check
+            if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i1].setBackgroundResource(R.drawable.yellow2);
+                array[i1].setTag("yellow2");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i1].setBackgroundResource(R.drawable.yellow3);
+                array[i1].setTag("yellow3");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i1].setBackgroundResource(R.drawable.yellow);
+                array[i1].setTag("yellow");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "1");
+            }
+            //button i2 check
+            if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i2].setBackgroundResource(R.drawable.yellow2);
+                array[i2].setTag("yellow2");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i2].setBackgroundResource(R.drawable.yellow3);
+                array[i2].setTag("yellow3");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i2].setBackgroundResource(R.drawable.yellow);
+                array[i2].setTag("yellow");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            array[i].setBackgroundResource(R.drawable.toe);
+            array[i].setTag(" ");
+            array[i].setTag(R.id.TAG_ONLINE_ID, " ");
+            // check();
+        }
+        //white check button i
+        else if (array[i].getTag().equals("white2")) {
+            //button i1 check
+            if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i1].setBackgroundResource(R.drawable.white2);
+                array[i1].setTag("white2");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i1].setBackgroundResource(R.drawable.white3);
+                array[i1].setTag("white3");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i1].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i1].setBackgroundResource(R.drawable.white);
+                array[i1].setTag("white");
+                array[i1].setTag(R.id.TAG_ONLINE_ID, "1");
+            }
+            //button i2 check
+            if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("1")) {
+                array[i2].setBackgroundResource(R.drawable.white2);
+                array[i2].setTag("white2");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "2");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals("2")) {
+                array[i2].setBackgroundResource(R.drawable.white3);
+                array[i2].setTag("white3");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "3");
+            } else if (array[i2].getTag(R.id.TAG_ONLINE_ID).equals(" ")) {
+                array[i2].setBackgroundResource(R.drawable.white);
+                array[i2].setTag("white");
+                array[i2].setTag(R.id.TAG_ONLINE_ID, "1");
+
+            }
+            array[i].setBackgroundResource(R.drawable.toe);
+            array[i].setTag(" ");
+            array[i].setTag(R.id.TAG_ONLINE_ID, " ");
+            // check();
+        }
+
     }
 
     private void turnchk() {
-        //turn check
-        //colourSwitch(0);
+
+
         if (Users == 2) {
             if (turn == 1) {
-
-
-                for (int i = 0; i < 150; i++) {
-                    array[i].setImageResource(R.drawable.border_red);
-                }
-                // tableLayout.setBackgroundResource(R.drawable.border_red);
-                //  imageView.setBackgroundResource(R.drawable.background_red);
-                //   Toast.makeText(this, "Red's turn", Toast.LENGTH_SHORT).show();
-            } else if (turn == 2) {
-
-
                 for (int i = 0; i < 150; i++) {
                     array[i].setImageResource(R.drawable.border_green);
                 }
-                // tableLayout.setBackgroundResource(R.drawable.border_green);
-                //   imageView.setBackgroundResource(R.drawable.background_green);
-                //  Toast.makeText(this, "Green's turn", Toast.LENGTH_SHORT).show();
+                turn = 2;
+            } else if (turn == 2) {
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_red);
+                }
+                turn = 1;
             }
         } else if (Users == 3) {
             resultchkOut();
             if (turn == 1) {
-                if (RedOut) {
-                    turn = 2;
-                    turnchk();
-                } else {
-
-                    //  tableLayout.setBackgroundResource(R.drawable.border_red);
-                    for (int i = 0; i < 150; i++) {
-                        array[i].setImageResource(R.drawable.border_red);
-                    }//  imageView.setBackgroundResource(R.drawable.background_red);
-                    //   Toast.makeText(this, "Red's turn", Toast.LENGTH_SHORT).show();
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_green);
                 }
+                turn = 2;
             } else if (turn == 2) {
-                if (GreenOut) {
-                    turn = 3;
-                    turnchk();
-                } else {
-
-                    //tableLayout.setBackgroundResource(R.drawable.border_green);
-                    for (int i = 0; i < 150; i++) {
-                        array[i].setImageResource(R.drawable.border_green);
-                    }
-                    //   imageView.setBackgroundResource(R.drawable.background_green);
-                    //  Toast.makeText(this, "Green's turn", Toast.LENGTH_SHORT).show();
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_blue);
                 }
+                turn = 3;
+
             } else if (turn == 3) {
-                if (BlueOut) {
-                    turn = 1;
-                    turnchk();
-                } else {
 
-                    // tableLayout.setBackgroundResource(R.drawable.border_blue);
-                    for (int i = 0; i < 150; i++) {
-                        array[i].setImageResource(R.drawable.border_blue);
-                    }
-                    //   imageView.setBackgroundResource(R.drawable.background_green);
-                    //  Toast.makeText(this, "Green's turn", Toast.LENGTH_SHORT).show();
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_red);
                 }
+                turn = 1;
+            }
+        } else if (Users == 4) {
+            resultchkOut();
+            if (turn == 1) {
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_green);
+                }
+                turn = 2;
+            } else if (turn == 2) {
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_blue);
+                }
+                turn = 3;
+            } else if (turn == 3) {
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_pink);
+                }
+                turn = 4;
+            } else if (turn == 4) {
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_red);
+                }
+                turn = 1;
+            }
+        } else if (Users == 5) {
+            resultchkOut();
+            if (turn == 1) {
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_green);
+                }
+                turn = 2;
+            } else if (turn == 2) {
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_blue);
+                }
+                turn = 3;
+            } else if (turn == 3) {
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_pink);
+                }
+                turn = 4;
+            } else if (turn == 4) {
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_orange);
+                }
+                turn = 5;
+            } else if (turn == 5) {
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_red);
+                }
+                turn = 1;
+            }
+        } else if (Users == 6) {
+            resultchkOut();
+            if (turn == 1) {
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_green);
+                }
+                turn = 2;
+            } else if (turn == 2) {
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_blue);
+                }
+                turn = 3;
+            } else if (turn == 3) {
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_pink);
+                }
+                turn = 4;
+            } else if (turn == 4) {
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_orange);
+                }
+                turn = 5;
+            } else if (turn == 5) {
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_purple);
+                }
+                turn = 6;
+            } else if (turn == 6) {
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_red);
+                }
+                turn = 1;
+            }
+        } else if (Users == 7) {
+            resultchkOut();
+            if (turn == 1) {
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_green);
+                }
+                turn = 2;
+            } else if (turn == 2) {
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_blue);
+                }
+                turn = 3;
+            } else if (turn == 3) {
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_pink);
+                }
+                turn = 4;
+            } else if (turn == 4) {
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_orange);
+                }
+                turn = 5;
+            } else if (turn == 5) {
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_purple);
+                }
+                turn = 6;
+            } else if (turn == 6) {
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_yellow);
+                }
+                turn = 7;
+            } else if (turn == 7) {
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_red);
+                }
+                turn = 1;
+            }
+        } else if (Users == 8) {
+            resultchkOut();
+            if (turn == 1) {
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_green);
+                }
+                turn = 2;
+            } else if (turn == 2) {
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_blue);
+                }
+                turn = 3;
+            } else if (turn == 3) {
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_pink);
+                }
+                turn = 4;
+            } else if (turn == 4) {
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_orange);
+                }
+                turn = 5;
+            } else if (turn == 5) {
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_purple);
+                }
+                turn = 6;
+            } else if (turn == 6) {
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_yellow);
+                }
+                turn = 7;
+            } else if (turn == 7) {
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_white);
+                }
+                turn = 8;
+            } else if (turn == 8) {
+                for (int i = 0; i < 150; i++) {
+                    array[i].setImageResource(R.drawable.border_red);
+                }
+                turn = 1;
             }
         }
     }
@@ -2155,6 +3481,12 @@ public class MainActivity extends AppCompatActivity {
         green = false;
         red = false;
         blue = false;
+        pink = false;
+        orange = false;
+        purple = false;
+        yellow = false;
+        white = false;
+
         RedOut = false;
         GreenOut = false;
         BlueOut = false;
@@ -2461,6 +3793,7 @@ public class MainActivity extends AppCompatActivity {
         array[149] = button150;
         for (int i = 0; i < 150; i++) {
             array[i].setTag(" ");
+            array[i].setTag(R.id.TAG_ONLINE_ID, " ");
             /**
              final int finalI = i;
              Runnable runnable = new Runnable() {
