@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
@@ -14,7 +13,7 @@ import com.armscreation.a_games.R;
 
 
 public class home extends Fragment {
-CardView tictactoe,bingo,chain_reaction,chain_reaction_pro,chain_reaction_beta;
+    CardView tictactoe, bingo, chain_reaction, chain_reaction_pro, chain_reaction_beta,StopWatch;
 
     public home() {
         // Required empty public co nstructor
@@ -31,15 +30,16 @@ CardView tictactoe,bingo,chain_reaction,chain_reaction_pro,chain_reaction_beta;
     }
 
     private void initView(View view) {
-        tictactoe=view.findViewById(R.id.tictactoe);
-        bingo=view.findViewById(R.id.bingo);
-        chain_reaction=view.findViewById(R.id.chain_reaction);
-        chain_reaction_pro=view.findViewById(R.id.chain_reaction_pro);
-        chain_reaction_beta=view.findViewById(R.id.chain_reaction_beta);
+        tictactoe = view.findViewById(R.id.tictactoe);
+        bingo = view.findViewById(R.id.bingo);
+        chain_reaction = view.findViewById(R.id.chain_reaction);
+        chain_reaction_pro = view.findViewById(R.id.chain_reaction_pro);
+        chain_reaction_beta = view.findViewById(R.id.chain_reaction_beta);
+        StopWatch=view.findViewById(R.id.StopWatch);
         tictactoe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getContext(),com.armscreation.a_games.tictactoe.Splash.class);
+                Intent intent = new Intent(getContext(), com.armscreation.a_games.tictactoe.Splash.class);
                 startActivity(intent);
 
             }
@@ -48,7 +48,7 @@ CardView tictactoe,bingo,chain_reaction,chain_reaction_pro,chain_reaction_beta;
         bingo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getContext(),com.armscreation.a_games.bingo.Splash.class);
+                Intent intent = new Intent(getContext(), com.armscreation.a_games.bingo.Splash.class);
                 startActivity(intent);
             }
         });
@@ -56,7 +56,7 @@ CardView tictactoe,bingo,chain_reaction,chain_reaction_pro,chain_reaction_beta;
         chain_reaction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(getContext(),com.armscreation.a_games.chain.Splash.class);
+                Intent intent = new Intent(getContext(), com.armscreation.a_games.chain.Splash.class);
                 startActivity(intent);
             }
         });
@@ -64,9 +64,9 @@ CardView tictactoe,bingo,chain_reaction,chain_reaction_pro,chain_reaction_beta;
         chain_reaction_pro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // Toast.makeText(getContext(), "Comming soon ", Toast.LENGTH_SHORT).show();
-                Intent intent=new Intent(getContext(),com.armscreation.a_games.chainpro.Splash.class);
-               startActivity(intent);
+                // Toast.makeText(getContext(), "Comming soon ", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getContext(), com.armscreation.a_games.chainpro.Splash.class);
+                startActivity(intent);
             }
         });
 
@@ -74,11 +74,18 @@ CardView tictactoe,bingo,chain_reaction,chain_reaction_pro,chain_reaction_beta;
             @Override
             public void onClick(View view) {
                 // Toast.makeText(getContext(), "Comming soon ", Toast.LENGTH_SHORT).show();
-                Intent intent=new Intent(getContext(),com.armscreation.a_games.chain_beta.Splash.class);
+                Intent intent = new Intent(getContext(), com.armscreation.a_games.chain_beta.Splash.class);
                 startActivity(intent);
             }
         });
-
+        StopWatch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Toast.makeText(getContext(), "Comming soon ", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(getContext(), com.armscreation.a_games.StopWatch.Splash.class);
+                startActivity(intent);
+            }
+        });
     }
 
 }

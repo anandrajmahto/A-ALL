@@ -11,7 +11,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".chain_beta.Splash"></activity>
+        <activity
+            android:name=".StopWatch.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".StopWatch.Splash"
+            android:exported="false" />
+        <activity android:name=".chain_beta.Splash" />
         <activity android:name=".chain_beta.MainActivity" />
         <activity android:name=".tictactoe.Splash" />
         <activity android:name=".tictactoe.Host" />
