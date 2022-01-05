@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.armscreation.a_games">
+    package="com.armscreation.a_all">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -12,31 +12,31 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".StopWatch.MainActivity"
+            android:name="com.armscreation.a_all.StopWatch.MainActivity"
             android:exported="false" />
         <activity
-            android:name=".StopWatch.Splash"
+            android:name="com.armscreation.a_all.StopWatch.Splash"
             android:exported="false" />
-        <activity android:name=".chain_beta.Splash" />
-        <activity android:name=".chain_beta.MainActivity" />
-        <activity android:name=".tictactoe.Splash" />
-        <activity android:name=".tictactoe.Host" />
-        <activity android:name=".tictactoe.MainActivity" />
-        <activity android:name=".tictactoe.Join" />
-        <activity android:name=".bingo.Splash" />
-        <activity android:name=".bingo.Host" />
-        <activity android:name=".bingo.MainActivity" />
-        <activity android:name=".bingo.Join" />
-        <activity android:name=".chain.Splash" />
-        <activity android:name=".chain.Host" />
-        <activity android:name=".chain.MainActivity" />
-        <activity android:name=".chain.Join" />
-        <activity android:name=".chainpro.Splash" />
-        <activity android:name=".chainpro.Host" />
-        <activity android:name=".chainpro.MainActivity" />
-        <activity android:name=".chainpro.Join" />
+        <activity android:name="com.armscreation.a_all.chain_beta.Splash" />
+        <activity android:name="com.armscreation.a_all.chain_beta.MainActivity" />
+        <activity android:name="com.armscreation.a_all.tictactoe.Splash" />
+        <activity android:name="com.armscreation.a_all.tictactoe.Host" />
+        <activity android:name="com.armscreation.a_all.tictactoe.MainActivity" />
+        <activity android:name="com.armscreation.a_all.tictactoe.Join" />
+        <activity android:name="com.armscreation.a_all.bingo.Splash" />
+        <activity android:name="com.armscreation.a_all.bingo.Host" />
+        <activity android:name="com.armscreation.a_all.bingo.MainActivity" />
+        <activity android:name="com.armscreation.a_all.bingo.Join" />
+        <activity android:name="com.armscreation.a_all.chain.Splash" />
+        <activity android:name="com.armscreation.a_all.chain.Host" />
+        <activity android:name="com.armscreation.a_all.chain.MainActivity" />
+        <activity android:name="com.armscreation.a_all.chain.Join" />
+        <activity android:name="com.armscreation.a_all.chainpro.Splash" />
+        <activity android:name="com.armscreation.a_all.chainpro.Host" />
+        <activity android:name="com.armscreation.a_all.chainpro.MainActivity" />
+        <activity android:name="com.armscreation.a_all.chainpro.Join" />
         <activity
-            android:name=".MainActivity"
+            android:name="com.armscreation.a_all.MainActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
